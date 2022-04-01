@@ -1,4 +1,4 @@
-package com.example.serviceexample;
+package com.example.stockportfolio;
 
 import org.junit.Test;
 

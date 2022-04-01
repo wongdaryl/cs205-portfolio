@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.ServiceExample" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.StockPortfolio" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
@@ -14,12 +14,12 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="Theme.ServiceExample.NoActionBar">
+    <style name="Theme.StockPortfolio.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="Theme.ServiceExample.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.StockPortfolio.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-    <style name="Theme.ServiceExample.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="Theme.StockPortfolio.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

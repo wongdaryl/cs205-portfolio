@@ -1,32 +1,28 @@
-package com.example.serviceexample;
+package com.example.stockportfolio;
 
 import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.database.Cursor;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.serviceexample.*;
+import com.example.stockportfolio.receivers.DownloadBroadcastReceiver;
+import com.example.stockportfolio.services.StockService;
 
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity {
 
     private Button start, calc, start1, calc1;
     private TextView result, result1;
     private EditText ticker, ticker1;
 
-//    Uri CONTENT_URI = Uri.parse("content://com.example.serviceexample.HistoricalDataProvider/history");
+    //    Uri CONTENT_URI = Uri.parse("content://com.example.serviceexample.HistoricalDataProvider/history");
     private BroadcastReceiver myBroadcastReceiver;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +47,7 @@ public class MainActivity extends AppCompatActivity{
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), MyService.class);
+                Intent intent = new Intent(getApplicationContext(), StockService.class);
                 intent.putExtra("ticker", String.valueOf(ticker.getText()));
                 intent.putExtra("index", 0);
                 startService(intent);
@@ -61,7 +57,7 @@ public class MainActivity extends AppCompatActivity{
         start1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), MyService.class);
+                Intent intent = new Intent(getApplicationContext(), StockService.class);
                 intent.putExtra("ticker", String.valueOf(ticker1.getText()));
                 intent.putExtra("index", 1);
                 startService(intent);
@@ -74,7 +70,7 @@ public class MainActivity extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                 result.setText("Waiting for data.. ");
-                myBroadcastReceiver = new MyBroadcastReceiver(new Handler(Looper.getMainLooper()));
+                myBroadcastReceiver = new DownloadBroadcastReceiver(new Handler(Looper.getMainLooper()));
                 registerReceiver(myBroadcastReceiver, new IntentFilter("DOWNLOAD_COMPLETE"));
             }
         });
@@ -83,7 +79,7 @@ public class MainActivity extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                 result1.setText("Waiting for data.. ");
-                myBroadcastReceiver = new MyBroadcastReceiver(new Handler(Looper.getMainLooper()));
+                myBroadcastReceiver = new DownloadBroadcastReceiver(new Handler(Looper.getMainLooper()));
                 registerReceiver(myBroadcastReceiver, new IntentFilter("DOWNLOAD_COMPLETE"));
             }
         });

@@ -1,6 +1,5 @@
-package com.example.serviceexample;
+package com.example.stockportfolio.receivers;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -10,15 +9,14 @@ import android.net.Uri;
 import android.os.Handler;
 import android.util.Log;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import java.util.ArrayList;
+import com.example.stockportfolio.R;
 
-public class MyBroadcastReceiver extends BroadcastReceiver {
+public class DownloadBroadcastReceiver extends BroadcastReceiver {
 
     private final Handler handler;
 
-    public MyBroadcastReceiver(Handler handler) {
+    public DownloadBroadcastReceiver(Handler handler) {
         this.handler = handler;
     }
 
@@ -28,7 +26,7 @@ public class MyBroadcastReceiver extends BroadcastReceiver {
             handler.post(new Runnable() {
                 @Override
                 public void run() {
-                    Uri CONTENT_URI = Uri.parse("content://com.example.serviceexample.HistoricalDataProvider/history");
+                    Uri CONTENT_URI = Uri.parse("content://com.example.stockportfolio.HistoricalDataProvider/history");
                     TextView result = (TextView) ((Activity)context).findViewById(R.id.textview_result);
                     result.setText("Calculating...");
                     double sum_price = 0.0;

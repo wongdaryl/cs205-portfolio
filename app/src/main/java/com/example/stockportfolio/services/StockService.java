@@ -1,9 +1,8 @@
-package com.example.serviceexample;
+package com.example.stockportfolio.services;
 
 import android.app.Service;
 import android.content.ContentValues;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.IBinder;
@@ -13,42 +12,71 @@ import android.os.Process;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.example.stockportfolio.providers.HistoricalDataProvider;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
 
-public class MyService extends Service{
-    private Looper serviceLooper;
-    private ServiceHandler serviceHandler;
-
+public class StockService extends Service {
     private static final String REQUEST_METHOD = "GET";
     private static final int READ_TIMEOUT = 15000;
     private static final int CONNECTION_TIMEOUT = 15000;
-
+    private final String token = ""; // put your own token
+    private Looper serviceLooper;
+    private ServiceHandler serviceHandler;
     private String ticker = "MSFT";
     private int index = -1;
-    private String token =""; // put your own token
 
-    private final class ServiceHandler extends Handler{
-        public ServiceHandler(Looper looper){
+    @Override
+    public void onCreate() {
+        HandlerThread thread = new HandlerThread("Service", Process.THREAD_PRIORITY_BACKGROUND);
+        thread.start();
+        serviceLooper = thread.getLooper();
+        serviceHandler = new ServiceHandler(serviceLooper);
+    }
+
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        ticker = intent.getStringExtra("ticker");
+        index = intent.getIntExtra("index", -1);
+        Toast.makeText(this, "download starting for " + ticker, Toast.LENGTH_SHORT).show();
+        Message msg = serviceHandler.obtainMessage();
+        msg.arg1 = startId;
+        msg.arg2 = index;
+        serviceHandler.sendMessage(msg);
+
+        return START_STICKY;
+    }
+
+    @Override
+    public IBinder onBind(Intent intent) {
+        return null;
+    }
+
+    @Override
+    public void onDestroy() {
+        Toast.makeText(this, "download done", Toast.LENGTH_SHORT).show();
+    }
+
+    private final class ServiceHandler extends Handler {
+        public ServiceHandler(Looper looper) {
             super(looper);
         }
 
         @Override
-        public void handleMessage(Message msg){
+        public void handleMessage(Message msg) {
             // url to get historical data
 
-            String stringUrl = "https://finnhub.io/api/v1/stock/candle?symbol="+ticker
-                    +"&resolution=1&from=1631022248&to=1631627048&token="+token;
+            String stringUrl = "https://finnhub.io/api/v1/stock/candle?symbol=" + ticker
+                    + "&resolution=1&from=1631022248&to=1631627048&token=" + token;
             String result;
             String inputLine;
 
@@ -57,7 +85,7 @@ public class MyService extends Service{
                 // make GET requests
 
                 URL myUrl = new URL(stringUrl);
-                HttpURLConnection connection =(HttpURLConnection) myUrl.openConnection();
+                HttpURLConnection connection = (HttpURLConnection) myUrl.openConnection();
 
                 connection.setRequestMethod(REQUEST_METHOD);
                 connection.setReadTimeout(READ_TIMEOUT);
@@ -71,7 +99,7 @@ public class MyService extends Service{
                 BufferedReader reader = new BufferedReader(streamReader);
                 StringBuilder stringBuilder = new StringBuilder();
 
-                while((inputLine = reader.readLine()) != null){
+                while ((inputLine = reader.readLine()) != null) {
                     stringBuilder.append(inputLine);
                 }
 
@@ -80,7 +108,7 @@ public class MyService extends Service{
 
                 result = stringBuilder.toString();
 
-            } catch(IOException e) {
+            } catch (IOException e) {
                 e.printStackTrace();
                 result = null;
                 Thread.currentThread().interrupt();
@@ -96,7 +124,9 @@ public class MyService extends Service{
                 jsonObject = new JSONObject(result);
                 jsonArrayClose = jsonObject.getJSONArray("c");
                 jsonArrayVolume = jsonObject.getJSONArray("v");
-            } catch (JSONException e) {e.printStackTrace();}
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
 
 
             Log.v("close", String.valueOf(jsonArrayClose.length()));
@@ -109,11 +139,13 @@ public class MyService extends Service{
                     Log.v("data", i + ":, c: " + close + " v: " + volume);
 
                     ContentValues values = new ContentValues();
-                    values.put(HistoricalDataProvider.CLOSE, close);
-                    values.put(HistoricalDataProvider.VOLUME, volume);
-                    getContentResolver().insert(HistoricalDataProvider.CONTENT_URI, values);
+                    values.put(HistoricalDataProvider.getClose(), close);
+                    values.put(HistoricalDataProvider.getVolume(), volume);
+                    getContentResolver().insert(HistoricalDataProvider.getContentUri(), values);
                 }
-            } catch (JSONException e) {e.printStackTrace();}
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
 
             // broadcast message that download is complete
 
@@ -125,33 +157,4 @@ public class MyService extends Service{
 
         }
     }
-
-    @Override
-    public void onCreate(){
-        HandlerThread thread = new HandlerThread("Service", Process.THREAD_PRIORITY_BACKGROUND);
-        thread.start();
-        serviceLooper = thread.getLooper();
-        serviceHandler = new ServiceHandler(serviceLooper);
-    }
-
-    @Override
-    public int onStartCommand(Intent intent, int flags, int startId){
-        ticker = intent.getStringExtra("ticker");
-        index = intent.getIntExtra("index", -1);
-        Toast.makeText(this, "download starting for " + ticker, Toast.LENGTH_SHORT).show();
-        Message msg = serviceHandler.obtainMessage();
-        msg.arg1 = startId;
-        msg.arg2 = index;
-        serviceHandler.sendMessage(msg);
-
-        return START_STICKY;
-    }
-
-    @Override
-    public IBinder onBind(Intent intent){
-        return null;
-    }
-
-    @Override
-    public void onDestroy(){ Toast.makeText(this, "download done", Toast.LENGTH_SHORT).show(); }
 }
