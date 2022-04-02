@@ -4,15 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HomeFragment"
-    android:background="@color/neutral_700">
+    android:background="@color/neutral_800">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:fontFamily="@font/Poppins_Regular"
         android:text="@string/welcome_fragment"
+        android:textColor="@color/white"
         android:textSize="30dp" />
-
 </RelativeLayout>

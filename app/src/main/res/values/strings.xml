@@ -12,4 +12,5 @@
     <string name="home">Home</string>
     <string name="favourite">Favourite</string>
     <string name="welcome_fragment">This is home page</string>
+    <string name="favourite_fragment">This is favourite page</string>
 </resources>
