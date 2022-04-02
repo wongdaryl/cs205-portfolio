@@ -36,7 +36,5 @@
                 <action android:name="DOWNLOAD_COMPLETE" />
             </intent-filter>
         </receiver>
-
     </application>
-
 </manifest>

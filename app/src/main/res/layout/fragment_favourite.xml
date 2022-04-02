@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:text="@string/favourite_fragment"
         android:textColor="@color/white"
-        android:fontFamily="@font/Poppins_Regular"
+        android:fontFamily="@font/poppins_regular"
         android:textSize="30dp"
         android:layout_centerInParent="true" />
 </RelativeLayout>
