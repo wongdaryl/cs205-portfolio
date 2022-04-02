@@ -1,10 +1,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.stockportfolio.MainActivity">
     <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />
+        android:id="@+id/home"
+        android:title="@string/home"
+        android:icon="@drawable/ic_baseline_home_24" />
+    <item
+        android:id="@+id/favourite"
+        android:title="@string/favourite"
+        android:icon="@drawable/ic_baseline_star_24" />
 </menu>

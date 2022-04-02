@@ -9,4 +9,7 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="title">CS205 Assignment 3</string>
+    <string name="home">Home</string>
+    <string name="favourite">Favourite</string>
+    <string name="welcome_fragment">This is home page</string>
 </resources>
