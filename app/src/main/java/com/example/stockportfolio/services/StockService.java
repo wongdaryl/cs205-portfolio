@@ -29,7 +29,7 @@ public class StockService extends Service {
     private static final String REQUEST_METHOD = "GET";
     private static final int READ_TIMEOUT = 15000;
     private static final int CONNECTION_TIMEOUT = 15000;
-    private final String token = ""; // put your own token
+    private final String token = "c9577i2ad3icae7g5p6g"; // put your own token
     private Looper serviceLooper;
     private ServiceHandler serviceHandler;
     private String ticker = "MSFT";
