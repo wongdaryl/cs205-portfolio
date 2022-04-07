@@ -51,10 +51,14 @@ public class HomeFragment extends Fragment {
         myBroadcastReceiver = new DownloadBroadcastReceiver(new Handler(Looper.getMainLooper()));
 
         start0 = (Button)getActivity().findViewById(R.id.start0);
+        start0.setText(R.string.download);
         calc0 = (Button)getActivity().findViewById(R.id.calc0);
+        calc0.setText(R.string.calculate);
         calc0.setBackgroundColor(getResources().getColor(R.color.neutral_500));
         result0 = (TextView)getActivity().findViewById(R.id.result0);
+        result0.setText(R.string.vwap);
         ticker0 = (EditText)getActivity().findViewById(R.id.ticker0);
+        ticker0.setHint(R.string.ticker);
 
         start0.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,5 +95,10 @@ public class HomeFragment extends Fragment {
     public void onStop() {
         super.onStop();
         getActivity().unregisterReceiver(myBroadcastReceiver);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
     }
 }
