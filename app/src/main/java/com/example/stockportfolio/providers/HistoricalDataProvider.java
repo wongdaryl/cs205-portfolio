@@ -48,9 +48,6 @@ public class HistoricalDataProvider extends ContentProvider {
 
     private SQLiteDatabase db;
 
-
-    // helper class creates repo
-
     public static String getClose() {
         return CLOSE;
     }
@@ -68,28 +65,14 @@ public class HistoricalDataProvider extends ContentProvider {
     public boolean onCreate() {
         Context context = getContext();
         DatabaseHelper dbHelper = new DatabaseHelper(context);
-        // create db if not exists
+
+        // Create db if not exists
         db = dbHelper.getWritableDatabase();
         return db != null;
     }
 
     @Override
-    public Uri insert(Uri uri, ContentValues values) {
-
-        long rowID = db.insert(TABLE_NAME, "", values);
-
-        if (rowID > 0) {
-            Uri _uri = ContentUris.withAppendedId(CONTENT_URI, rowID);
-            getContext().getContentResolver().notifyChange(_uri, null);
-            return _uri;
-        }
-
-        throw new SQLException("Failed to add a record into " + uri);
-    }
-
-    @Override
     public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
-
         SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
         qb.setTables(TABLE_NAME);
 
@@ -103,29 +86,33 @@ public class HistoricalDataProvider extends ContentProvider {
             default:
         }
 
-        if (sortOrder == null || sortOrder == "") {
+        if (sortOrder == null || sortOrder.isEmpty()) {
             sortOrder = ID;
         }
 
         Cursor c = qb.query(db, projection, selection, selectionArgs, null, null, sortOrder);
 
-        // register to watch a content URI for changes
+        // Register to watch a content URI for changes
         c.setNotificationUri(getContext().getContentResolver(), uri);
         return c;
     }
 
     @Override
-    public String getType(Uri uri) {
-        switch (uriMatcher.match(uri)) {
-            // all records
-            case HISTORY:
-                return "vnd.android.cursor.dir/vnd.com.example.provider.history";
-            // a particular record
-            case HISTORY_ID:
-                return "vnd.android.cursor.item/vnd.com.example.provider.history";
-            default:
-                throw new IllegalArgumentException("Unsupported URI: " + uri);
+    public Uri insert(Uri uri, ContentValues values) {
+        long rowID = db.insert(TABLE_NAME, "", values);
+
+        if (rowID > 0) {
+            Uri _uri = ContentUris.withAppendedId(CONTENT_URI, rowID);
+            getContext().getContentResolver().notifyChange(_uri, null);
+            return _uri;
         }
+
+        throw new SQLException("Failed to add a record into " + uri);
+    }
+
+    @Override
+    public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String s, @Nullable String[] strings) {
+        return 0;
     }
 
     @Override
@@ -134,8 +121,17 @@ public class HistoricalDataProvider extends ContentProvider {
     }
 
     @Override
-    public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String s, @Nullable String[] strings) {
-        return 0;
+    public String getType(Uri uri) {
+        switch (uriMatcher.match(uri)) {
+            // All records
+            case HISTORY:
+                return "vnd.android.cursor.dir/vnd.com.example.provider.history";
+            // Single particular record
+            case HISTORY_ID:
+                return "vnd.android.cursor.item/vnd.com.example.provider.history";
+            default:
+                throw new IllegalArgumentException("Unsupported URI: " + uri);
+        }
     }
 
     private static class DatabaseHelper extends SQLiteOpenHelper {
