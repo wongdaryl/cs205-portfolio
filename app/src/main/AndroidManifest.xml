@@ -45,8 +45,7 @@
             android:enabled="true"
             android:exported="true"/>
         <receiver
-            android:name=".receivers.DownloadBroadcastReceiver"
-            tools:ignore="Instantiatable"
+            android:name="com.example.stockportfolio.receivers.DownloadBroadcastReceiver"
             android:exported="true">
             <intent-filter>
                 <action android:name="DOWNLOAD_COMPLETE" />
