@@ -1,18 +1,34 @@
 package com.example.stockportfolio.fragments;
 
+import android.content.BroadcastReceiver;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.stockportfolio.R;
+import com.example.stockportfolio.receivers.DownloadBroadcastReceiver;
+import com.example.stockportfolio.services.StockService;
 
 public class HomeFragment extends Fragment {
 
+    private Button start0, calc0, start1, calc1;
+    private TextView result0, result1;
+    private EditText ticker0, ticker1;
+    private BroadcastReceiver myBroadcastReceiver;
+
     public HomeFragment() {
-        // Required empty public constructor
     }
 
     @Override
@@ -25,5 +41,41 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        myBroadcastReceiver = new DownloadBroadcastReceiver(new Handler(Looper.getMainLooper()));
+
+        start0 = (Button)getActivity().findViewById(R.id.start0);
+        calc0 = (Button)getActivity().findViewById(R.id.calc0);
+        result0 = (TextView)getActivity().findViewById(R.id.result0);
+        ticker0 = (EditText)getActivity().findViewById(R.id.ticker0);
+
+        start0.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity().getApplicationContext(), StockService.class);
+                intent.putExtra("ticker", String.valueOf(ticker0.getText()));
+                intent.putExtra("index", 0);
+                getActivity().startService(intent);
+            }
+        });
+
+        calc0.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                result0.setText("Waiting for data.. ");
+                getActivity().registerReceiver(myBroadcastReceiver, new IntentFilter("DOWNLOAD_COMPLETE"));
+            }
+        });
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        getActivity().unregisterReceiver(myBroadcastReceiver);
     }
 }

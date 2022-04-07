@@ -25,9 +25,10 @@
         </activity>
         <service android:name=".services.StockService" />
         <provider
-            android:name=".providers.HistoricalDataProvider"
+            android:name="com.example.stockportfolio.providers.HistoricalDataProvider"
             android:authorities="com.example.stockportfolio.providers.HistoricalDataProvider"
-            android:enabled="true" />
+            android:enabled="true"
+            android:exported="true"/>
         <receiver
             android:name=".receivers.DownloadBroadcastReceiver"
             tools:ignore="Instantiatable"

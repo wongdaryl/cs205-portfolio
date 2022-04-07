@@ -2,7 +2,12 @@ package com.example.stockportfolio;
 
 import android.content.BroadcastReceiver;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,13 +15,14 @@ import androidx.fragment.app.Fragment;
 
 import com.example.stockportfolio.fragments.FavouriteFragment;
 import com.example.stockportfolio.fragments.HomeFragment;
+import com.example.stockportfolio.receivers.DownloadBroadcastReceiver;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
-//    private Button start, calc, start1, calc1;
-//    private TextView result, result1;
-//    private EditText ticker, ticker1;
+//    private Button start0, calc0, start1, calc1;
+//    private TextView result0, result1;
+//    private EditText ticker0, ticker1;
 
     private BroadcastReceiver myBroadcastReceiver;
     private BottomNavigationView bottomNavigationView;
@@ -54,10 +60,12 @@ public class MainActivity extends AppCompatActivity {
         // By default, navigation bar starts at home page
         getSupportFragmentManager().beginTransaction().replace(R.id.container, new HomeFragment()).commit();
 
-//        start = (Button) findViewById(R.id.start_button);
-//        calc = (Button) findViewById(R.id.calc_button);
-//        result = (TextView) findViewById(R.id.textview_result);
-//        ticker = (EditText) findViewById(R.id.edit_ticker);
+        myBroadcastReceiver = new DownloadBroadcastReceiver(new Handler(Looper.getMainLooper()));
+
+//        start0 = (Button) findViewById(R.id.start_button);
+//        calc0 = (Button) findViewById(R.id.calc_button);
+//        result0 = (TextView) findViewById(R.id.textview_result);
+//        ticker0 = (EditText) findViewById(R.id.edit_ticker);
 //
 //        start1 = (Button) findViewById(R.id.start_button1);
 //        calc1 = (Button) findViewById(R.id.calc_button1);

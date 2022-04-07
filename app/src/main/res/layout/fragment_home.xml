@@ -7,45 +7,85 @@
     tools:context=".fragments.HomeFragment"
     android:background="@color/neutral_800">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="53dp"
+        android:layout_marginTop="100dp"
+        android:fontFamily="@font/poppins_regular"
+        android:gravity="center"
+        android:text="@string/welcome_fragment"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:layout_centerHorizontal="true"
+        />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="200dp"
+        android:layout_marginTop="100dp">
 
-        <EditText
-            android:id="@+id/ticker0"
-            android:layout_width="80dp"
-            android:layout_height="48dp"
-            android:text="AAPL"
-            android:textAlignment="center"
 
-            android:textColor="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/start0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/start0"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Download"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.577"
-            app:layout_constraintStart_toEndOf="@+id/ticker0"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="53dp"
-            android:layout_marginTop="164dp"
-            android:fontFamily="@font/poppins_regular"
-            android:text="@string/welcome_fragment"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="30sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/layout01"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:dividerPadding="100dp"
+            android:gravity="center"
+            android:layout_marginTop="200dp">
+
+            <EditText
+                android:id="@+id/ticker0"
+                android:layout_width="80dp"
+                android:layout_height="48dp"
+                android:gravity="center"
+                android:text="@string/ticker"
+                android:textColor="@color/white"
+                android:layout_marginRight="50dp"
+                android:layout_marginEnd="50dp" />
+
+            <Button
+                android:id="@+id/start0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/download"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout00"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="15dp"
+            >
+
+            <TextView
+                android:id="@+id/result0"
+                android:layout_width="wrap_content"
+                android:layout_height="53dp"
+                android:gravity="center"
+                android:paddingHorizontal="15dp"
+                android:text="@string/result"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:layout_marginEnd="50dp"
+                android:layout_marginRight="50dp" />
+
+            <Button
+                android:id="@+id/calc0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/calculate" />
+
+        </LinearLayout>
+    </LinearLayout>
+
 </RelativeLayout>

@@ -29,7 +29,7 @@ public class StockService extends Service {
     private static final String REQUEST_METHOD = "GET";
     private static final int READ_TIMEOUT = 15000;
     private static final int CONNECTION_TIMEOUT = 15000;
-    private final String token = "c9577i2ad3icae7g5p6g"; // put your own token
+    private final String token = "c9577i2ad3icae7g5p6g";
     private Looper serviceLooper;
     private ServiceHandler serviceHandler;
     private String ticker = "MSFT";
@@ -63,7 +63,7 @@ public class StockService extends Service {
 
     @Override
     public void onDestroy() {
-        Toast.makeText(this, "download done", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "download finished for " + ticker, Toast.LENGTH_SHORT).show();
     }
 
     private final class ServiceHandler extends Handler {
@@ -152,7 +152,6 @@ public class StockService extends Service {
             Intent intent = new Intent("DOWNLOAD_COMPLETE");
             intent.putExtra("index", msg.arg2);
             sendBroadcast(intent);
-
             stopSelf(msg.arg1);
 
         }

@@ -13,4 +13,8 @@
     <string name="favourite">Favourite</string>
     <string name="welcome_fragment">This is home page</string>
     <string name="favourite_fragment">This is favourite page</string>
+    <string name="ticker">ticker</string>
+    <string name="download">Download</string>
+    <string name="calculate">Calculate</string>
+    <string name="result">result</string>
 </resources>

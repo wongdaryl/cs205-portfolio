@@ -18,7 +18,7 @@ import androidx.annotation.Nullable;
 import java.util.HashMap;
 
 public class HistoricalDataProvider extends ContentProvider {
-    static final String PROVIDER_NAME = "com.example.stockportfolio.HistoricalDataProvider";
+    static final String PROVIDER_NAME = "com.example.stockportfolio.providers.HistoricalDataProvider";
     static final String URL = "content://" + PROVIDER_NAME + "/history";
     static final Uri CONTENT_URI = Uri.parse(URL);
 
