@@ -77,6 +77,7 @@ public class StockService extends Service {
 
             String stringUrl = "https://finnhub.io/api/v1/stock/candle?symbol=" + ticker
                     + "&resolution=1&from=1631022248&to=1631627048&token=" + token;
+            Log.v("url", stringUrl);
             String result;
             String inputLine;
 

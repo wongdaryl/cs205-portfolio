@@ -1,5 +1,6 @@
 package com.example.stockportfolio.fragments;
 
+import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -51,6 +52,7 @@ public class HomeFragment extends Fragment {
 
         start0 = (Button)getActivity().findViewById(R.id.start0);
         calc0 = (Button)getActivity().findViewById(R.id.calc0);
+        calc0.setBackgroundColor(getResources().getColor(R.color.neutral_500));
         result0 = (TextView)getActivity().findViewById(R.id.result0);
         ticker0 = (EditText)getActivity().findViewById(R.id.ticker0);
 
@@ -60,17 +62,29 @@ public class HomeFragment extends Fragment {
                 Intent intent = new Intent(getActivity().getApplicationContext(), StockService.class);
                 intent.putExtra("ticker", String.valueOf(ticker0.getText()));
                 intent.putExtra("index", 0);
+                start0.setClickable(false);
+                start0.setBackgroundColor(getResources().getColor(R.color.neutral_500));
+                start0.setText(R.string.downloading);
                 getActivity().startService(intent);
+                getActivity().registerReceiver(myBroadcastReceiver, new IntentFilter("DOWNLOAD_COMPLETE"));
+                getActivity().registerReceiver(myBroadcastReceiver, new IntentFilter("CALCULATE"));
             }
         });
 
         calc0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                result0.setText("Waiting for data.. ");
-                getActivity().registerReceiver(myBroadcastReceiver, new IntentFilter("DOWNLOAD_COMPLETE"));
+                Intent intent = new Intent("CALCULATE");
+                intent.putExtra("index", 0);
+//                calc0.setBackgroundColor(R.color.neutral_500);
+                calc0.setClickable(false);
+                calc0.setText(R.string.calculating);
+                calc0.setBackgroundColor(getActivity().getResources().getColor(R.color.neutral_500));
+                result0.setTextColor(getActivity().getResources().getColor(R.color.neutral_500));
+                getActivity().sendBroadcast(intent);
             }
         });
+        calc0.setClickable(false);
     }
 
     @Override
