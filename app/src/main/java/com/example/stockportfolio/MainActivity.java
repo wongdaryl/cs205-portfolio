@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
     private BroadcastReceiver myBroadcastReceiver;
     private BottomNavigationView bottomNavigationView;
+//    private SearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
