@@ -25,6 +25,7 @@ public class HistoricalDataProvider extends ContentProvider {
     static final String ID = "id";
     static final String CLOSE = "close";
     static final String VOLUME = "volume";
+    static final String TICKER = "ticker";
     static final int HISTORY = 1;
     static final int HISTORY_ID = 2;
     static final UriMatcher uriMatcher;
@@ -37,7 +38,8 @@ public class HistoricalDataProvider extends ContentProvider {
             " CREATE TABLE " + TABLE_NAME +
                     " (id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     " close DECIMAL(5,3) NOT NULL, " +
-                    " volume DECIMAL(10,1) NOT NULL);";
+                    " volume DECIMAL(10,1) NOT NULL, " +
+                    " ticker VARCHAR(50) NOT NULL);";
     private static HashMap<String, String> HISTORY_PROJECTION_MAP;
 
     static {
@@ -55,6 +57,8 @@ public class HistoricalDataProvider extends ContentProvider {
     public static String getVolume() {
         return VOLUME;
     }
+
+    public static String getTicker() { return  TICKER; }
 
     public static Uri getContentUri() {
         return CONTENT_URI;

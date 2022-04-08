@@ -121,5 +121,21 @@ public class DownloadBroadcastReceiver extends BroadcastReceiver {
                 }
             });
         }
+        else if (intent.getAction().equals("DOWNLOAD_FAILED")) {
+            handler.post(new Runnable() {
+                @Override
+                public void run() {
+                    Button start;
+                    if (intent.getIntExtra("index", 0) == 0) {
+                        start = (Button) ((Activity)context).findViewById(R.id.start0);
+                    } else {
+                        start = (Button) ((Activity)context).findViewById(R.id.start0);
+                    }
+                    start.setClickable(true);
+                    start.setBackgroundColor(((Activity)context).getResources().getColor(R.color.purple_500));
+                    start.setText(((Activity)context).getResources().getString(R.string.download));
+                }
+            });
+        }
     }
 }

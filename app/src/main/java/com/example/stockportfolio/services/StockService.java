@@ -63,7 +63,7 @@ public class StockService extends Service {
 
     @Override
     public void onDestroy() {
-        Toast.makeText(this, "download finished for " + ticker, Toast.LENGTH_SHORT).show();
+
     }
 
     private final class ServiceHandler extends Handler {
@@ -75,6 +75,7 @@ public class StockService extends Service {
         public void handleMessage(Message msg) {
             // url to get historical data
 
+            // TODO: update the from and to timings when finished testing
             String stringUrl = "https://finnhub.io/api/v1/stock/candle?symbol=" + ticker
                     + "&resolution=1&from=1631022248&to=1631627048&token=" + token;
             Log.v("url", stringUrl);
@@ -119,9 +120,10 @@ public class StockService extends Service {
             // Error handling: handle case if no results
             if(result.contains("no_data")) {
                 Toast.makeText(getApplicationContext(), "No data on " + ticker, Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent("DOWNLOAD_COMPLETE");
+                Intent intent = new Intent("DOWNLOAD_FAILED");
+                intent.putExtra("index", msg.arg2);
                 sendBroadcast(intent);
-                stopSelf();
+                stopSelf(msg.arg1);
                 return;
             }
 
@@ -146,11 +148,11 @@ public class StockService extends Service {
                 for (int i = 0; i < jsonArrayClose.length(); i++) {
                     double close = jsonArrayClose.getDouble(i);
                     double volume = jsonArrayVolume.getDouble(i);
-                    Log.v("data", i + ":, c: " + close + " v: " + volume);
-
+                    Log.v("data", i + ":, " + ticker + "- c: " + close + " v: " + volume);
                     ContentValues values = new ContentValues();
                     values.put(HistoricalDataProvider.getClose(), close);
                     values.put(HistoricalDataProvider.getVolume(), volume);
+                    values.put(HistoricalDataProvider.getTicker(), ticker);
                     getContentResolver().insert(HistoricalDataProvider.getContentUri(), values);
                 }
             } catch (JSONException e) {
@@ -159,6 +161,7 @@ public class StockService extends Service {
 
             // broadcast message that download is complete
 
+            Toast.makeText(getApplicationContext(), "download finished for " + ticker, Toast.LENGTH_SHORT).show();
             Intent intent = new Intent("DOWNLOAD_COMPLETE");
             intent.putExtra("index", msg.arg2);
             sendBroadcast(intent);

@@ -52,6 +52,10 @@ public class HomeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         myBroadcastReceiver = new DownloadBroadcastReceiver(new Handler(Looper.getMainLooper()));
+        getActivity().registerReceiver(myBroadcastReceiver, new IntentFilter("DOWNLOAD_COMPLETE"));
+        getActivity().registerReceiver(myBroadcastReceiver, new IntentFilter("DOWNLOAD_FAILED"));
+        getActivity().registerReceiver(myBroadcastReceiver, new IntentFilter("CALCULATE"));
+
 
         start0 = (Button)getActivity().findViewById(R.id.start0);
         start0.setText(R.string.download);
@@ -79,9 +83,8 @@ public class HomeFragment extends Fragment {
                 start0.setClickable(false);
                 start0.setBackgroundColor(getResources().getColor(R.color.neutral_500));
                 start0.setText(R.string.downloading);
+                result0.setText(R.string.vwap);
                 getActivity().startService(intent);
-                getActivity().registerReceiver(myBroadcastReceiver, new IntentFilter("DOWNLOAD_COMPLETE"));
-                getActivity().registerReceiver(myBroadcastReceiver, new IntentFilter("CALCULATE"));
 
             }
         });
