@@ -13,6 +13,7 @@ import android.os.Process;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.example.stockportfolio.R;
 import com.example.stockportfolio.providers.HistoricalDataProvider;
 
 import org.json.JSONArray;
@@ -48,7 +49,7 @@ public class StockService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
         ticker = intent.getStringExtra("ticker");
         index = intent.getIntExtra("index", -1);
-        Toast.makeText(this, "download starting for " + ticker, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Download starting for " + ticker, Toast.LENGTH_SHORT).show();
 
         Bundle data = new Bundle();
         data.putInt("index", index);
@@ -129,6 +130,7 @@ public class StockService extends Service {
             // Error handling: handle case if no results
             if(result.contains("no_data")) {
                 Toast.makeText(getApplicationContext(), "No data on " + ticker, Toast.LENGTH_SHORT).show();
+                HistoricalDataProvider.getRecords().put(ticker, 0);
                 Intent intent = new Intent("DOWNLOAD_FAILED");
                 intent.putExtra("index", index);
                 sendBroadcast(intent);
@@ -170,6 +172,7 @@ public class StockService extends Service {
 
             // broadcast message that download is complete
             Toast.makeText(getApplicationContext(), "download finished for " + ticker, Toast.LENGTH_SHORT).show();
+            HistoricalDataProvider.getRecords().put(ticker, 1);
             Intent intent = new Intent("DOWNLOAD_COMPLETE");
             intent.putExtra("index", index);
             sendBroadcast(intent);

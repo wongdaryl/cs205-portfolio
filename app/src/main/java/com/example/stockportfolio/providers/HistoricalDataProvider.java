@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class HistoricalDataProvider extends ContentProvider {
     static final String PROVIDER_NAME = "com.example.stockportfolio.providers.HistoricalDataProvider";
@@ -31,6 +32,7 @@ public class HistoricalDataProvider extends ContentProvider {
     static final UriMatcher uriMatcher;
     static final String DATABASE_NAME = "Historical_Data";
     static final String TABLE_NAME = "history";
+    static Map<String, Integer> records = new HashMap<>();
 
     // Database specific constant declarations
     static final int DATABASE_VERSION = 1;
@@ -64,6 +66,9 @@ public class HistoricalDataProvider extends ContentProvider {
         return CONTENT_URI;
     }
 
+    public static Map<String, Integer> getRecords() {
+        return records;
+    }
 
     @Override
     public boolean onCreate() {

@@ -24,9 +24,7 @@ import com.example.stockportfolio.MainActivity;
 import com.example.stockportfolio.R;
 import com.example.stockportfolio.receivers.DownloadBroadcastReceiver;
 import com.example.stockportfolio.services.StockService;
-
-import java.util.HashSet;
-import java.util.Set;
+import com.example.stockportfolio.providers.HistoricalDataProvider;
 
 public class HomeFragment extends Fragment {
 
@@ -34,7 +32,6 @@ public class HomeFragment extends Fragment {
     private TextView ar0, v0, result1, result2, result3, result4;
     private EditText ticker0, ticker1, ticker2, ticker3, ticker4;
     private BroadcastReceiver myBroadcastReceiver;
-    private Set<String> records = new HashSet<>();
 
     public HomeFragment() {
     }
@@ -113,7 +110,6 @@ public class HomeFragment extends Fragment {
         ticker4 = (EditText)getActivity().findViewById(R.id.ticker4);
         ticker4.setHint(R.string.ticker);
 
-
         start0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -125,11 +121,15 @@ public class HomeFragment extends Fragment {
                     return;
                 }
 
-                // handle case if ticker already downloaded
-                if(records.contains(ticker0.getText().toString())) {
-                    Toast.makeText(getActivity().getApplicationContext(), "Already downloaded data on " + ticker0.getText(), Toast.LENGTH_SHORT).show();
-                    calc0.setClickable(true);
-                    calc0.setBackgroundColor(getResources().getColor(R.color.purple_500));
+                // Handle case if ticker already downloaded
+                if (HistoricalDataProvider.getRecords().containsKey(ticker0.getText().toString())) {
+                    if (HistoricalDataProvider.getRecords().get(ticker0.getText().toString()) == 1) {
+                        Toast.makeText(getActivity().getApplicationContext(), "Already downloaded data on " + ticker0.getText(), Toast.LENGTH_SHORT).show();
+                        calc0.setClickable(true);
+                        calc0.setBackgroundColor(getResources().getColor(R.color.purple_500));
+                    } else if (HistoricalDataProvider.getRecords().get(ticker0.getText().toString()) == 0) {
+                        Toast.makeText(getActivity().getApplicationContext(), "No data on " + ticker0.getText(), Toast.LENGTH_SHORT).show();
+                    }
                     return;
                 }
 
@@ -141,8 +141,6 @@ public class HomeFragment extends Fragment {
                 ar0.setText(R.string.AR);
                 v0.setText(R.string.vol);
                 getActivity().startService(intent);
-
-                records.add(ticker0.getText().toString());
             }
         });
 
@@ -157,11 +155,15 @@ public class HomeFragment extends Fragment {
                     return;
                 }
 
-                // handle case if ticker already downloaded
-                if(records.contains(ticker1.getText().toString())) {
-                    Toast.makeText(getActivity().getApplicationContext(), "Already downloaded data on " + ticker1.getText(), Toast.LENGTH_SHORT).show();
-                    calc1.setClickable(true);
-                    calc1.setBackgroundColor(getResources().getColor(R.color.purple_500));
+                // Handle case if ticker already downloaded
+                if (HistoricalDataProvider.getRecords().containsKey(ticker1.getText().toString())) {
+                    if (HistoricalDataProvider.getRecords().get(ticker1.getText().toString()) == 1) {
+                        Toast.makeText(getActivity().getApplicationContext(), "Already downloaded data on " + ticker1.getText(), Toast.LENGTH_SHORT).show();
+                        calc1.setClickable(true);
+                        calc1.setBackgroundColor(getResources().getColor(R.color.purple_500));
+                    } else if (HistoricalDataProvider.getRecords().get(ticker1.getText().toString()) == 0) {
+                        Toast.makeText(getActivity().getApplicationContext(), "No data on " + ticker1.getText(), Toast.LENGTH_SHORT).show();
+                    }
                     return;
                 }
 
@@ -172,8 +174,6 @@ public class HomeFragment extends Fragment {
                 start1.setText(R.string.downloading);
                 result1.setText(R.string.vwap);
                 getActivity().startService(intent);
-
-                records.add(ticker1.getText().toString());
             }
         });
 
@@ -188,11 +188,15 @@ public class HomeFragment extends Fragment {
                     return;
                 }
 
-                // handle case if ticker already downloaded
-                if(records.contains(ticker2.getText().toString())) {
-                    Toast.makeText(getActivity().getApplicationContext(), "Already downloaded data on " + ticker2.getText(), Toast.LENGTH_SHORT).show();
-                    calc2.setClickable(true);
-                    calc2.setBackgroundColor(getResources().getColor(R.color.purple_500));
+                // Handle case if ticker already downloaded
+                if (HistoricalDataProvider.getRecords().containsKey(ticker2.getText().toString())) {
+                    if (HistoricalDataProvider.getRecords().get(ticker2.getText().toString()) == 1) {
+                        Toast.makeText(getActivity().getApplicationContext(), "Already downloaded data on " + ticker2.getText(), Toast.LENGTH_SHORT).show();
+                        calc2.setClickable(true);
+                        calc2.setBackgroundColor(getResources().getColor(R.color.purple_500));
+                    } else if (HistoricalDataProvider.getRecords().get(ticker2.getText().toString()) == 0) {
+                        Toast.makeText(getActivity().getApplicationContext(), "No data on " + ticker2.getText(), Toast.LENGTH_SHORT).show();
+                    }
                     return;
                 }
 
@@ -203,8 +207,6 @@ public class HomeFragment extends Fragment {
                 start2.setText(R.string.downloading);
                 result2.setText(R.string.vwap);
                 getActivity().startService(intent);
-
-                records.add(ticker2.getText().toString());
             }
         });
 
@@ -219,11 +221,15 @@ public class HomeFragment extends Fragment {
                     return;
                 }
 
-                // handle case if ticker already downloaded
-                if(records.contains(ticker3.getText().toString())) {
-                    Toast.makeText(getActivity().getApplicationContext(), "Already downloaded data on " + ticker3.getText(), Toast.LENGTH_SHORT).show();
-                    calc3.setClickable(true);
-                    calc3.setBackgroundColor(getResources().getColor(R.color.purple_500));
+                // Handle case if ticker already downloaded
+                if (HistoricalDataProvider.getRecords().containsKey(ticker3.getText().toString())) {
+                    if (HistoricalDataProvider.getRecords().get(ticker3.getText().toString()) == 1) {
+                        Toast.makeText(getActivity().getApplicationContext(), "Already downloaded data on " + ticker3.getText(), Toast.LENGTH_SHORT).show();
+                        calc3.setClickable(true);
+                        calc3.setBackgroundColor(getResources().getColor(R.color.purple_500));
+                    } else if (HistoricalDataProvider.getRecords().get(ticker3.getText().toString()) == 0) {
+                        Toast.makeText(getActivity().getApplicationContext(), "No data on " + ticker3.getText(), Toast.LENGTH_SHORT).show();
+                    }
                     return;
                 }
 
@@ -234,8 +240,6 @@ public class HomeFragment extends Fragment {
                 start3.setText(R.string.downloading);
                 result3.setText(R.string.vwap);
                 getActivity().startService(intent);
-
-                records.add(ticker3.getText().toString());
             }
         });
 
@@ -250,11 +254,15 @@ public class HomeFragment extends Fragment {
                     return;
                 }
 
-                // handle case if ticker already downloaded
-                if(records.contains(ticker4.getText().toString())) {
-                    Toast.makeText(getActivity().getApplicationContext(), "Already downloaded data on " + ticker4.getText(), Toast.LENGTH_SHORT).show();
-                    calc4.setClickable(true);
-                    calc4.setBackgroundColor(getResources().getColor(R.color.purple_500));
+                // Handle case if ticker already downloaded
+                if (HistoricalDataProvider.getRecords().containsKey(ticker4.getText().toString())) {
+                    if (HistoricalDataProvider.getRecords().get(ticker4.getText().toString()) == 1) {
+                        Toast.makeText(getActivity().getApplicationContext(), "Already downloaded data on " + ticker4.getText(), Toast.LENGTH_SHORT).show();
+                        calc4.setClickable(true);
+                        calc4.setBackgroundColor(getResources().getColor(R.color.purple_500));
+                    } else if (HistoricalDataProvider.getRecords().get(ticker4.getText().toString()) == 0) {
+                        Toast.makeText(getActivity().getApplicationContext(), "No data on " + ticker4.getText(), Toast.LENGTH_SHORT).show();
+                    }
                     return;
                 }
 
@@ -265,8 +273,6 @@ public class HomeFragment extends Fragment {
                 start4.setText(R.string.downloading);
                 result4.setText(R.string.vwap);
                 getActivity().startService(intent);
-
-                records.add(ticker4.getText().toString());
             }
         });
 
