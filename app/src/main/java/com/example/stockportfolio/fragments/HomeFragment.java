@@ -7,17 +7,20 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.stockportfolio.MainActivity;
 import com.example.stockportfolio.R;
 import com.example.stockportfolio.receivers.DownloadBroadcastReceiver;
 import com.example.stockportfolio.services.StockService;
@@ -64,6 +67,11 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity().getApplicationContext(), StockService.class);
+                if(TextUtils.isEmpty(ticker0.getText())) {
+                    Toast.makeText(getActivity().getApplicationContext(), "No input provided", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 intent.putExtra("ticker", String.valueOf(ticker0.getText()));
                 intent.putExtra("index", 0);
                 start0.setClickable(false);
@@ -72,6 +80,7 @@ public class HomeFragment extends Fragment {
                 getActivity().startService(intent);
                 getActivity().registerReceiver(myBroadcastReceiver, new IntentFilter("DOWNLOAD_COMPLETE"));
                 getActivity().registerReceiver(myBroadcastReceiver, new IntentFilter("CALCULATE"));
+
             }
         });
 
