@@ -67,6 +67,8 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity().getApplicationContext(), StockService.class);
+
+                // Error handling: handle case if no input
                 if(TextUtils.isEmpty(ticker0.getText())) {
                     Toast.makeText(getActivity().getApplicationContext(), "No input provided", Toast.LENGTH_SHORT).show();
                     return;

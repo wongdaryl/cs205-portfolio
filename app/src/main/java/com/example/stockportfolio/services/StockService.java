@@ -115,8 +115,17 @@ public class StockService extends Service {
                 Thread.currentThread().interrupt();
             }
 
-            // parse the json string into 'close' and 'volume' array
 
+            // Error handling: handle case if no results
+            if(result.contains("no_data")) {
+                Toast.makeText(getApplicationContext(), "No data on " + ticker, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent("DOWNLOAD_COMPLETE");
+                sendBroadcast(intent);
+                stopSelf();
+                return;
+            }
+
+            // parse the json string into 'close' and 'volume' array
             JSONObject jsonObject = null;
             JSONArray jsonArrayClose = null;
             JSONArray jsonArrayVolume = null;
@@ -154,7 +163,6 @@ public class StockService extends Service {
             intent.putExtra("index", msg.arg2);
             sendBroadcast(intent);
             stopSelf(msg.arg1);
-
         }
     }
 }
