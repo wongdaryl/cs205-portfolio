@@ -93,6 +93,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent("CALCULATE");
+                intent.putExtra("ticker", String.valueOf(ticker0.getText()));
                 intent.putExtra("index", 0);
 //                calc0.setBackgroundColor(R.color.neutral_500);
                 calc0.setClickable(false);

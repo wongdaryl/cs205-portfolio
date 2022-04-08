@@ -89,9 +89,12 @@ public class DownloadBroadcastReceiver extends BroadcastReceiver {
                         calc = (Button) ((Activity)context).findViewById(R.id.calc0);
                     }
 
+                    String ticker = intent.getStringExtra("ticker");
+                    String selection = "ticker = '" + ticker + "'";
+                    Log.v("selection", selection);
                     double sum_price = 0.0;
                     double sum_volume = 0.0;
-                    Cursor cursor = context.getContentResolver().query(CONTENT_URI, null, null, null, null);
+                    Cursor cursor = context.getContentResolver().query(CONTENT_URI, null, selection, null, null);
                     if (cursor.moveToFirst()) {
                         double close = cursor.getDouble(cursor.getColumnIndexOrThrow("close"));
                         double volume = cursor.getDouble(cursor.getColumnIndexOrThrow("volume"));
