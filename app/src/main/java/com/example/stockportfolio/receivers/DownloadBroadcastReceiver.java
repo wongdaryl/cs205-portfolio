@@ -61,23 +61,27 @@ public class DownloadBroadcastReceiver extends BroadcastReceiver {
                 @Override
                 public void run() {
                     int index = intent.getIntExtra("index", -1);
-                    TextView result, volatility;
+                    TextView annualRet, volatility;
                     Button calc;
                     if (index == 0) {
-                        result = (TextView) ((Activity)context).findViewById(R.id.ar0);
+                        annualRet = (TextView) ((Activity)context).findViewById(R.id.ar0);
                         volatility = (TextView) ((Activity)context).findViewById(R.id.v0);
                         calc = (Button) ((Activity)context).findViewById(R.id.calc0);
                     } else if (index == 1) {
-                        result = (TextView) ((Activity)context).findViewById(R.id.result1);
+                        annualRet = (TextView) ((Activity)context).findViewById(R.id.result1);
+                        volatility = (TextView) ((Activity)context).findViewById(R.id.v0);
                         calc = (Button) ((Activity)context).findViewById(R.id.calc1);
                     } else if (index == 2) {
-                        result = (TextView) ((Activity)context).findViewById(R.id.result2);
+                        annualRet = (TextView) ((Activity)context).findViewById(R.id.result2);
+                        volatility = (TextView) ((Activity)context).findViewById(R.id.v0);
                         calc = (Button) ((Activity)context).findViewById(R.id.calc2);
                     } else if (index == 3) {
-                        result = (TextView) ((Activity)context).findViewById(R.id.result3);
+                        annualRet = (TextView) ((Activity)context).findViewById(R.id.result3);
+                        volatility = (TextView) ((Activity)context).findViewById(R.id.v0);
                         calc = (Button) ((Activity)context).findViewById(R.id.calc3);
                     } else if (index == 4) {
-                        result = (TextView) ((Activity)context).findViewById(R.id.result4);
+                        annualRet = (TextView) ((Activity)context).findViewById(R.id.result4);
+                        volatility = (TextView) ((Activity)context).findViewById(R.id.v0);
                         calc = (Button) ((Activity)context).findViewById(R.id.calc4);
                     }
                     else {
@@ -87,31 +91,87 @@ public class DownloadBroadcastReceiver extends BroadcastReceiver {
                     Uri CONTENT_URI = Uri.parse("content://com.example.stockportfolio.providers.HistoricalDataProvider/history");
                     String ticker = intent.getStringExtra("ticker");
                     String selection = "ticker = '" + ticker + "'";
+                    int count = 0;
+                    double sum_ret = 0.0;
                     double sum_price = 0.0;
                     double sum_volume = 0.0;
                     Cursor cursor = context.getContentResolver().query(CONTENT_URI, null, selection, null, null);
                     if (cursor.moveToFirst()) {
+
                         double close = cursor.getDouble(cursor.getColumnIndexOrThrow("close"));
+                        double open = cursor.getDouble(cursor.getColumnIndexOrThrow("open"));
+
+                        double ret = (close - open) / open;
+                        sum_ret += ret;
+
                         double volume = cursor.getDouble(cursor.getColumnIndexOrThrow("volume"));
                         sum_price += close * volume;
                         sum_volume += volume;
                         while (!cursor.isAfterLast()) {
                             int id = cursor.getColumnIndex("id");
                             close = cursor.getDouble(cursor.getColumnIndexOrThrow("close"));
+                            open = cursor.getDouble(cursor.getColumnIndexOrThrow("open"));
+                            ret = (close - open) / open;
+                            sum_ret += ret;
                             volume = cursor.getDouble(cursor.getColumnIndexOrThrow("volume"));
                             sum_price += close * volume;
                             sum_volume += volume;
                             cursor.moveToNext();
-                            Log.v("data", close + "");
+                            Log.v("row", count + ": ret = " + ret);
+                            count++;
                         }
                     }
                     else {
-                        result.setText(R.string.no_records_found);
+                        annualRet.setText(R.string.no_records_found);
                     }
 
+                    double meanRet = sum_ret / count;
+                    double annualizedReturn = 250 * meanRet * 100;
+
                     double vwap = sum_price / sum_volume;
-                    result.setText(String.format("%.2f", vwap));
-                    result.setTextColor(((Activity)context).getResources().getColor(R.color.white));
+                    annualRet.setText(String.format("%.2f", annualizedReturn) + "%");
+                    annualRet.setTextColor(((Activity)context).getResources().getColor(R.color.white));
+
+                    double sum_diff = 0.0;
+                    count = 0;
+                    cursor = context.getContentResolver().query(CONTENT_URI, null, selection, null, null);
+                    if (cursor.moveToFirst()) {
+
+                        double close = cursor.getDouble(cursor.getColumnIndexOrThrow("close"));
+                        double open = cursor.getDouble(cursor.getColumnIndexOrThrow("open"));
+
+                        double ret = (close - open) / open;
+                        sum_diff += Math.pow((ret - meanRet) , 2);
+//                        sum_ret += ret;
+
+                        double volume = cursor.getDouble(cursor.getColumnIndexOrThrow("volume"));
+                        sum_price += close * volume;
+                        sum_volume += volume;
+                        while (!cursor.isAfterLast()) {
+                            int id = cursor.getColumnIndex("id");
+                            close = cursor.getDouble(cursor.getColumnIndexOrThrow("close"));
+                            open = cursor.getDouble(cursor.getColumnIndexOrThrow("open"));
+                            ret = (close - open) / open;
+                            sum_diff += Math.pow((ret - meanRet) , 2);
+//                            sum_ret += ret;
+//                            volume = cursor.getDouble(cursor.getColumnIndexOrThrow("volume"));
+//                            sum_price += close * volume;
+//                            sum_volume += volume;
+                            cursor.moveToNext();
+                            Log.v("stddev", count + ": ret = " + ret);
+                            count++;
+                        }
+                    }
+                    else {
+                        annualRet.setText(R.string.no_records_found);
+                    }
+
+                    double std_dev = Math.sqrt( sum_diff / count);
+                    Log.v("std_dev", ""+std_dev);
+                    double volatilityValue = Math.sqrt(250) * std_dev * 100;
+                    volatility.setText(String.format("%.2f", volatilityValue) + "%");
+                    volatility.setTextColor(((Activity)context).getResources().getColor(R.color.white));
+
                     calc.setClickable(true);
                     calc.setText(R.string.calculate);
                     calc.setBackgroundColor(((Activity)context).getResources().getColor(R.color.purple_500));
