@@ -87,7 +87,6 @@ public class DownloadBroadcastReceiver extends BroadcastReceiver {
                     Uri CONTENT_URI = Uri.parse("content://com.example.stockportfolio.providers.HistoricalDataProvider/history");
                     String ticker = intent.getStringExtra("ticker");
                     String selection = "ticker = '" + ticker + "'";
-                    Log.v("selection", selection);
                     double sum_price = 0.0;
                     double sum_volume = 0.0;
                     Cursor cursor = context.getContentResolver().query(CONTENT_URI, null, selection, null, null);

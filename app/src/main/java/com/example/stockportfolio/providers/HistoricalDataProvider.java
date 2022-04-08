@@ -70,6 +70,8 @@ public class HistoricalDataProvider extends ContentProvider {
         return records;
     }
 
+
+
     @Override
     public boolean onCreate() {
         Context context = getContext();
@@ -77,6 +79,7 @@ public class HistoricalDataProvider extends ContentProvider {
 
         // Create db if not exists
         db = dbHelper.getWritableDatabase();
+        dbHelper.onCreate(db);
         return db != null;
     }
 
@@ -150,6 +153,7 @@ public class HistoricalDataProvider extends ContentProvider {
 
         @Override
         public void onCreate(SQLiteDatabase db) {
+            db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
             db.execSQL(CREATE_DB_TABLE);
         }
 

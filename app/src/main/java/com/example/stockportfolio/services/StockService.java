@@ -34,8 +34,6 @@ public class StockService extends Service {
     private static final String token = "c9577i2ad3icae7g5p6g";
     private Looper serviceLooper;
     private ServiceHandler serviceHandler;
-    private String ticker;
-    private int index = -1;
 
     @Override
     public void onCreate() {
@@ -47,8 +45,8 @@ public class StockService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        ticker = intent.getStringExtra("ticker");
-        index = intent.getIntExtra("index", -1);
+        String ticker = intent.getStringExtra("ticker");
+        int index = intent.getIntExtra("index", -1);
         Toast.makeText(this, "Download starting for " + ticker, Toast.LENGTH_SHORT).show();
 
         Bundle data = new Bundle();
@@ -57,7 +55,7 @@ public class StockService extends Service {
         Message msg = serviceHandler.obtainMessage();
         msg.setData(data);
         msg.arg1 = startId;
-        msg.arg2 = index;
+//        msg.arg2 = index;
         serviceHandler.sendMessage(msg);
 
         return START_STICKY;
@@ -88,7 +86,7 @@ public class StockService extends Service {
 
             // TODO: update the from and to timings when finished testing
             String stringUrl = "https://finnhub.io/api/v1/stock/candle?symbol=" + ticker
-                    + "&resolution=1&from=1631022248&to=1631627048&token=" + token;
+                    + "&resolution=D&from=1631022248&to=1631627048&token=" + token;
             Log.v("url", stringUrl);
             String result;
             String inputLine;
