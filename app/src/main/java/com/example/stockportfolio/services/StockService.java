@@ -117,7 +117,6 @@ public class StockService extends Service {
 
                 reader.close();
                 streamReader.close();
-
                 result = stringBuilder.toString();
 
             } catch (IOException e) {
@@ -170,7 +169,6 @@ public class StockService extends Service {
             }
 
             // broadcast message that download is complete
-
             Toast.makeText(getApplicationContext(), "download finished for " + ticker, Toast.LENGTH_SHORT).show();
             Intent intent = new Intent("DOWNLOAD_COMPLETE");
             intent.putExtra("index", index);

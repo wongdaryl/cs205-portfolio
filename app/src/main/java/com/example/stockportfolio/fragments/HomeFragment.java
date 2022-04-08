@@ -25,12 +25,16 @@ import com.example.stockportfolio.R;
 import com.example.stockportfolio.receivers.DownloadBroadcastReceiver;
 import com.example.stockportfolio.services.StockService;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class HomeFragment extends Fragment {
 
     private Button start0, calc0, start1, calc1, start2, calc2, start3, calc3, start4, calc4;
     private TextView ar0, v0, result1, result2, result3, result4;
     private EditText ticker0, ticker1, ticker2, ticker3, ticker4;
     private BroadcastReceiver myBroadcastReceiver;
+    private Set<String> records = new HashSet<>();
 
     public HomeFragment() {
     }
@@ -121,6 +125,14 @@ public class HomeFragment extends Fragment {
                     return;
                 }
 
+                // handle case if ticker already downloaded
+                if(records.contains(ticker0.getText().toString())) {
+                    Toast.makeText(getActivity().getApplicationContext(), "Already downloaded data on " + ticker0.getText(), Toast.LENGTH_SHORT).show();
+                    calc0.setClickable(true);
+                    calc0.setBackgroundColor(getResources().getColor(R.color.purple_500));
+                    return;
+                }
+
                 intent.putExtra("ticker", String.valueOf(ticker0.getText()));
                 intent.putExtra("index", 0);
                 start0.setClickable(false);
@@ -130,6 +142,7 @@ public class HomeFragment extends Fragment {
                 v0.setText(R.string.vol);
                 getActivity().startService(intent);
 
+                records.add(ticker0.getText().toString());
             }
         });
 
@@ -144,6 +157,14 @@ public class HomeFragment extends Fragment {
                     return;
                 }
 
+                // handle case if ticker already downloaded
+                if(records.contains(ticker1.getText().toString())) {
+                    Toast.makeText(getActivity().getApplicationContext(), "Already downloaded data on " + ticker1.getText(), Toast.LENGTH_SHORT).show();
+                    calc1.setClickable(true);
+                    calc1.setBackgroundColor(getResources().getColor(R.color.purple_500));
+                    return;
+                }
+
                 intent.putExtra("ticker", String.valueOf(ticker1.getText()));
                 intent.putExtra("index", 1);
                 start1.setClickable(false);
@@ -152,6 +173,7 @@ public class HomeFragment extends Fragment {
                 result1.setText(R.string.vwap);
                 getActivity().startService(intent);
 
+                records.add(ticker1.getText().toString());
             }
         });
 
@@ -166,6 +188,14 @@ public class HomeFragment extends Fragment {
                     return;
                 }
 
+                // handle case if ticker already downloaded
+                if(records.contains(ticker2.getText().toString())) {
+                    Toast.makeText(getActivity().getApplicationContext(), "Already downloaded data on " + ticker2.getText(), Toast.LENGTH_SHORT).show();
+                    calc2.setClickable(true);
+                    calc2.setBackgroundColor(getResources().getColor(R.color.purple_500));
+                    return;
+                }
+
                 intent.putExtra("ticker", String.valueOf(ticker2.getText()));
                 intent.putExtra("index", 2);
                 start2.setClickable(false);
@@ -174,6 +204,7 @@ public class HomeFragment extends Fragment {
                 result2.setText(R.string.vwap);
                 getActivity().startService(intent);
 
+                records.add(ticker2.getText().toString());
             }
         });
 
@@ -188,6 +219,14 @@ public class HomeFragment extends Fragment {
                     return;
                 }
 
+                // handle case if ticker already downloaded
+                if(records.contains(ticker3.getText().toString())) {
+                    Toast.makeText(getActivity().getApplicationContext(), "Already downloaded data on " + ticker3.getText(), Toast.LENGTH_SHORT).show();
+                    calc3.setClickable(true);
+                    calc3.setBackgroundColor(getResources().getColor(R.color.purple_500));
+                    return;
+                }
+
                 intent.putExtra("ticker", String.valueOf(ticker3.getText()));
                 intent.putExtra("index", 3);
                 start3.setClickable(false);
@@ -196,6 +235,7 @@ public class HomeFragment extends Fragment {
                 result3.setText(R.string.vwap);
                 getActivity().startService(intent);
 
+                records.add(ticker3.getText().toString());
             }
         });
 
@@ -210,6 +250,14 @@ public class HomeFragment extends Fragment {
                     return;
                 }
 
+                // handle case if ticker already downloaded
+                if(records.contains(ticker4.getText().toString())) {
+                    Toast.makeText(getActivity().getApplicationContext(), "Already downloaded data on " + ticker4.getText(), Toast.LENGTH_SHORT).show();
+                    calc4.setClickable(true);
+                    calc4.setBackgroundColor(getResources().getColor(R.color.purple_500));
+                    return;
+                }
+
                 intent.putExtra("ticker", String.valueOf(ticker4.getText()));
                 intent.putExtra("index", 4);
                 start4.setClickable(false);
@@ -218,6 +266,7 @@ public class HomeFragment extends Fragment {
                 result4.setText(R.string.vwap);
                 getActivity().startService(intent);
 
+                records.add(ticker4.getText().toString());
             }
         });
 
