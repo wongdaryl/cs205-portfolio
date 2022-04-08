@@ -61,10 +61,11 @@ public class DownloadBroadcastReceiver extends BroadcastReceiver {
                 @Override
                 public void run() {
                     int index = intent.getIntExtra("index", -1);
-                    TextView result;
+                    TextView result, volatility;
                     Button calc;
                     if (index == 0) {
-                        result = (TextView) ((Activity)context).findViewById(R.id.result0);
+                        result = (TextView) ((Activity)context).findViewById(R.id.ar0);
+                        volatility = (TextView) ((Activity)context).findViewById(R.id.v0);
                         calc = (Button) ((Activity)context).findViewById(R.id.calc0);
                     } else if (index == 1) {
                         result = (TextView) ((Activity)context).findViewById(R.id.result1);

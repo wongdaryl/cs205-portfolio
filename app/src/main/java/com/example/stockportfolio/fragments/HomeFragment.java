@@ -28,7 +28,7 @@ import com.example.stockportfolio.services.StockService;
 public class HomeFragment extends Fragment {
 
     private Button start0, calc0, start1, calc1, start2, calc2, start3, calc3, start4, calc4;
-    private TextView result0, result1, result2, result3, result4;
+    private TextView ar0, v0, result1, result2, result3, result4;
     private EditText ticker0, ticker1, ticker2, ticker3, ticker4;
     private BroadcastReceiver myBroadcastReceiver;
 
@@ -62,8 +62,10 @@ public class HomeFragment extends Fragment {
         calc0 = (Button)getActivity().findViewById(R.id.calc0);
         calc0.setText(R.string.calculate);
         calc0.setBackgroundColor(getResources().getColor(R.color.neutral_500));
-        result0 = (TextView)getActivity().findViewById(R.id.result0);
-        result0.setText(R.string.vwap);
+        ar0 = (TextView)getActivity().findViewById(R.id.ar0);
+        ar0.setText(R.string.AR);
+        v0 = (TextView)getActivity().findViewById(R.id.v0);
+        v0.setText(R.string.vol);
         ticker0 = (EditText)getActivity().findViewById(R.id.ticker0);
         ticker0.setHint(R.string.ticker);
 
@@ -124,7 +126,8 @@ public class HomeFragment extends Fragment {
                 start0.setClickable(false);
                 start0.setBackgroundColor(getResources().getColor(R.color.neutral_500));
                 start0.setText(R.string.downloading);
-                result0.setText(R.string.vwap);
+                ar0.setText(R.string.AR);
+                v0.setText(R.string.vol);
                 getActivity().startService(intent);
 
             }
@@ -227,7 +230,8 @@ public class HomeFragment extends Fragment {
                 calc0.setClickable(false);
                 calc0.setText(R.string.calculating);
                 calc0.setBackgroundColor(getActivity().getResources().getColor(R.color.neutral_500));
-                result0.setTextColor(getActivity().getResources().getColor(R.color.neutral_500));
+                ar0.setTextColor(getActivity().getResources().getColor(R.color.neutral_500));
+                v0.setTextColor(getActivity().getResources().getColor(R.color.neutral_500));
                 getActivity().sendBroadcast(intent);
             }
         });
