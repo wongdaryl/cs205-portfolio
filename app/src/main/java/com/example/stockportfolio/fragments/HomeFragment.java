@@ -129,6 +129,10 @@ public class HomeFragment extends Fragment {
                         calc0.setBackgroundColor(getResources().getColor(R.color.purple_500));
                     } else if (HistoricalDataProvider.getRecords().get(ticker0.getText().toString()) == 0) {
                         Toast.makeText(getActivity().getApplicationContext(), "No data on " + ticker0.getText(), Toast.LENGTH_SHORT).show();
+                        calc0.setClickable(false);
+                        calc0.setBackgroundColor(getResources().getColor(R.color.neutral_500));
+                        ar0.setText(R.string.AR);
+                        v0.setText(R.string.vol);
                     }
                     return;
                 }
@@ -163,6 +167,9 @@ public class HomeFragment extends Fragment {
                         calc1.setBackgroundColor(getResources().getColor(R.color.purple_500));
                     } else if (HistoricalDataProvider.getRecords().get(ticker1.getText().toString()) == 0) {
                         Toast.makeText(getActivity().getApplicationContext(), "No data on " + ticker1.getText(), Toast.LENGTH_SHORT).show();
+                        calc1.setClickable(false);
+                        calc1.setBackgroundColor(getResources().getColor(R.color.neutral_500));
+                        result1.setText(R.string.vwap);
                     }
                     return;
                 }
@@ -196,6 +203,9 @@ public class HomeFragment extends Fragment {
                         calc2.setBackgroundColor(getResources().getColor(R.color.purple_500));
                     } else if (HistoricalDataProvider.getRecords().get(ticker2.getText().toString()) == 0) {
                         Toast.makeText(getActivity().getApplicationContext(), "No data on " + ticker2.getText(), Toast.LENGTH_SHORT).show();
+                        calc2.setClickable(false);
+                        calc2.setBackgroundColor(getResources().getColor(R.color.neutral_500));
+                        result2.setText(R.string.vwap);
                     }
                     return;
                 }
@@ -229,6 +239,9 @@ public class HomeFragment extends Fragment {
                         calc3.setBackgroundColor(getResources().getColor(R.color.purple_500));
                     } else if (HistoricalDataProvider.getRecords().get(ticker3.getText().toString()) == 0) {
                         Toast.makeText(getActivity().getApplicationContext(), "No data on " + ticker3.getText(), Toast.LENGTH_SHORT).show();
+                        calc3.setClickable(false);
+                        calc3.setBackgroundColor(getResources().getColor(R.color.neutral_500));
+                        result3.setText(R.string.vwap);
                     }
                     return;
                 }
@@ -262,6 +275,9 @@ public class HomeFragment extends Fragment {
                         calc4.setBackgroundColor(getResources().getColor(R.color.purple_500));
                     } else if (HistoricalDataProvider.getRecords().get(ticker4.getText().toString()) == 0) {
                         Toast.makeText(getActivity().getApplicationContext(), "No data on " + ticker4.getText(), Toast.LENGTH_SHORT).show();
+                        calc4.setClickable(false);
+                        calc4.setBackgroundColor(getResources().getColor(R.color.neutral_500));
+                        result4.setText(R.string.vwap);
                     }
                     return;
                 }
