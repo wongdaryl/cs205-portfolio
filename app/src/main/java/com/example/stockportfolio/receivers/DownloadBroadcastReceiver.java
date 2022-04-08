@@ -36,9 +36,16 @@ public class DownloadBroadcastReceiver extends BroadcastReceiver {
                     } else if (index == 1) {
                         calc = (Button) ((Activity)context).findViewById(R.id.calc1);
                         start = (Button) ((Activity)context).findViewById(R.id.start1);
+                    } else if (index == 2) {
+                        calc = (Button) ((Activity)context).findViewById(R.id.calc2);
+                        start = (Button) ((Activity)context).findViewById(R.id.start2);
+                    } else if (index == 3) {
+                        calc = (Button) ((Activity)context).findViewById(R.id.calc3);
+                        start = (Button) ((Activity)context).findViewById(R.id.start3);
+                    } else if (index == 4) {
+                        calc = (Button) ((Activity)context).findViewById(R.id.calc4);
+                        start = (Button) ((Activity)context).findViewById(R.id.start4);
                     } else {
-//                        calc = (Button) ((Activity)context).findViewById(R.id.calc0);
-//                        start = (Button) ((Activity)context).findViewById(R.id.start0);
                         return;
                     }
                     calc.setClickable(true);
@@ -62,10 +69,17 @@ public class DownloadBroadcastReceiver extends BroadcastReceiver {
                     } else if (index == 1) {
                         result = (TextView) ((Activity)context).findViewById(R.id.result1);
                         calc = (Button) ((Activity)context).findViewById(R.id.calc1);
+                    } else if (index == 2) {
+                        result = (TextView) ((Activity)context).findViewById(R.id.result2);
+                        calc = (Button) ((Activity)context).findViewById(R.id.calc2);
+                    } else if (index == 3) {
+                        result = (TextView) ((Activity)context).findViewById(R.id.result3);
+                        calc = (Button) ((Activity)context).findViewById(R.id.calc3);
+                    } else if (index == 4) {
+                        result = (TextView) ((Activity)context).findViewById(R.id.result4);
+                        calc = (Button) ((Activity)context).findViewById(R.id.calc4);
                     }
                     else {
-//                        result = (TextView) ((Activity)context).findViewById(R.id.result0);
-//                        calc = (Button) ((Activity)context).findViewById(R.id.calc0);
                         return;
                     }
 
@@ -92,7 +106,7 @@ public class DownloadBroadcastReceiver extends BroadcastReceiver {
                         }
                     }
                     else {
-                        result.setText("No Records Found");
+                        result.setText(R.string.no_records_found);
                     }
 
                     double vwap = sum_price / sum_volume;
@@ -115,9 +129,14 @@ public class DownloadBroadcastReceiver extends BroadcastReceiver {
                         start = (Button) ((Activity)context).findViewById(R.id.start0);
                     } else if (index == 1) {
                         start = (Button) ((Activity)context).findViewById(R.id.start1);
+                    } else if (index == 2) {
+                        start = (Button) ((Activity)context).findViewById(R.id.start2);
+                    } else if (index == 3) {
+                        start = (Button) ((Activity)context).findViewById(R.id.start3);
+                    } else if (index == 4) {
+                        start = (Button) ((Activity)context).findViewById(R.id.start4);
                     }
                     else {
-//                        start = (Button) ((Activity)context).findViewById(R.id.start0);
                         return;
                     }
                     start.setClickable(true);

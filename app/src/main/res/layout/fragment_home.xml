@@ -7,143 +7,360 @@
     tools:context=".fragments.HomeFragment"
     android:background="@color/neutral_800">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="53dp"
-        android:layout_marginTop="100dp"
-        android:fontFamily="@font/poppins_regular"
-        android:gravity="center"
-        android:text="@string/welcome_fragment"
-        android:textColor="@color/white"
-        android:textSize="30sp"
-        android:layout_centerHorizontal="true"
-        />
 
-    <LinearLayout
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="500dp"
-        android:orientation="vertical"
-        >
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp">
 
         <LinearLayout
-            android:id="@+id/layout00"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:dividerPadding="100dp"
+            android:orientation="vertical"
             android:gravity="center"
-            android:layout_marginTop="200dp">
-
-            <EditText
-                android:id="@+id/ticker0"
-                android:layout_width="80dp"
-                android:layout_height="48dp"
-                android:gravity="center"
-                android:textColorHint="@color/neutral_500"
-                tools:text="AAPL"
-                android:textColor="@color/white"
-                android:layout_marginRight="50dp"
-                android:layout_marginEnd="50dp" />
-
-            <Button
-                android:id="@+id/start0"
+            android:paddingBottom="100dp"
+            android:paddingTop="50dp"
+            >
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="@string/download"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="center"
+                android:text="@string/stock_portfolio_manager"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="50dp"
                 />
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/layout01"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_marginTop="15dp"
-            >
-
-            <TextView
-                android:id="@+id/result0"
-                android:layout_width="wrap_content"
-                android:layout_height="53dp"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="0dp"
+                android:orientation="vertical"
                 android:gravity="center"
-                android:paddingHorizontal="15dp"
-                tools:text="@string/result"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                android:layout_marginEnd="50dp"
-                android:layout_marginRight="50dp" />
+                >
 
-            <Button
-                android:id="@+id/calc0"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="@string/calculate" />
+                <LinearLayout
+                    android:id="@+id/layout00"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
 
-        </LinearLayout>
-    </LinearLayout>
+                    <EditText
+                        android:id="@+id/ticker0"
+                        android:layout_width="80dp"
+                        android:layout_height="48dp"
+                        android:gravity="center"
+                        android:textColorHint="@color/neutral_500"
+                        tools:text="TSLA"
+                        android:textColor="@color/white"
+                        android:layout_marginRight="50dp"
+                        android:layout_marginEnd="50dp" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="500dp"
-        android:layout_marginTop="150dp"
-        android:orientation="vertical"
-        >
+                    <Button
+                        android:id="@+id/start0"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="@string/download"
+                        />
 
-        <LinearLayout
-            android:id="@+id/layout10"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:dividerPadding="100dp"
-            android:gravity="center"
-            android:layout_marginTop="200dp">
+                </LinearLayout>
 
-            <EditText
-                android:id="@+id/ticker1"
-                android:layout_width="80dp"
-                android:layout_height="48dp"
+                <LinearLayout
+                    android:id="@+id/layout01"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginTop="15dp"
+                    >
+
+                    <TextView
+                        android:id="@+id/result0"
+                        android:layout_width="wrap_content"
+                        android:layout_height="53dp"
+                        android:gravity="center"
+                        android:paddingHorizontal="15dp"
+                        tools:text="@string/result"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:layout_marginEnd="50dp"
+                        android:layout_marginRight="50dp" />
+
+                    <Button
+                        android:id="@+id/calc0"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="@string/calculate" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="0dp"
+                android:orientation="vertical"
                 android:gravity="center"
-                android:textColorHint="@color/neutral_500"
-                tools:text="TSLA"
-                android:textColor="@color/white"
-                android:layout_marginRight="50dp"
-                android:layout_marginEnd="50dp" />
+                >
 
-            <Button
-                android:id="@+id/start1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="@string/download"
-                />
+                <LinearLayout
+                    android:id="@+id/layout10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
 
-        </LinearLayout>
+                    <EditText
+                        android:id="@+id/ticker1"
+                        android:layout_width="80dp"
+                        android:layout_height="48dp"
+                        android:gravity="center"
+                        android:textColorHint="@color/neutral_500"
+                        tools:text="TSLA"
+                        android:textColor="@color/white"
+                        android:layout_marginRight="50dp"
+                        android:layout_marginEnd="50dp" />
 
-        <LinearLayout
-            android:id="@+id/layout11"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_marginTop="15dp"
-            >
+                    <Button
+                        android:id="@+id/start1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="@string/download"
+                        />
 
-            <TextView
-                android:id="@+id/result1"
-                android:layout_width="wrap_content"
-                android:layout_height="53dp"
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout11"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginTop="15dp"
+                    >
+
+                    <TextView
+                        android:id="@+id/result1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="53dp"
+                        android:gravity="center"
+                        android:paddingHorizontal="15dp"
+                        tools:text="@string/result"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:layout_marginEnd="50dp"
+                        android:layout_marginRight="50dp" />
+
+                    <Button
+                        android:id="@+id/calc1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="@string/calculate" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="00dp"
+                android:orientation="vertical"
                 android:gravity="center"
-                android:paddingHorizontal="15dp"
-                tools:text="@string/result"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                android:layout_marginEnd="50dp"
-                android:layout_marginRight="50dp" />
+                >
 
-            <Button
-                android:id="@+id/calc1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="@string/calculate" />
+                <LinearLayout
+                    android:id="@+id/layout20"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+
+                    <EditText
+                        android:id="@+id/ticker2"
+                        android:layout_width="80dp"
+                        android:layout_height="48dp"
+                        android:gravity="center"
+                        android:textColorHint="@color/neutral_500"
+                        tools:text="TSLA"
+                        android:textColor="@color/white"
+                        android:layout_marginRight="50dp"
+                        android:layout_marginEnd="50dp" />
+
+                    <Button
+                        android:id="@+id/start2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="@string/download"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout21"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginTop="15dp"
+                    >
+
+                    <TextView
+                        android:id="@+id/result2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="53dp"
+                        android:gravity="center"
+                        android:paddingHorizontal="15dp"
+                        tools:text="@string/result"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:layout_marginEnd="50dp"
+                        android:layout_marginRight="50dp" />
+
+                    <Button
+                        android:id="@+id/calc2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="@string/calculate" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="0dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+
+                <LinearLayout
+                    android:id="@+id/layout30"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+
+                    <EditText
+                        android:id="@+id/ticker3"
+                        android:layout_width="80dp"
+                        android:layout_height="48dp"
+                        android:gravity="center"
+                        android:textColorHint="@color/neutral_500"
+                        tools:text="TSLA"
+                        android:textColor="@color/white"
+                        android:layout_marginRight="50dp"
+                        android:layout_marginEnd="50dp" />
+
+                    <Button
+                        android:id="@+id/start3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="@string/download"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout31"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginTop="15dp"
+                    >
+
+                    <TextView
+                        android:id="@+id/result3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="53dp"
+                        android:gravity="center"
+                        android:paddingHorizontal="15dp"
+                        tools:text="@string/result"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:layout_marginEnd="50dp"
+                        android:layout_marginRight="50dp" />
+
+                    <Button
+                        android:id="@+id/calc3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="@string/calculate" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="0dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+
+                <LinearLayout
+                    android:id="@+id/layout40"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+
+                    <EditText
+                        android:id="@+id/ticker4"
+                        android:layout_width="80dp"
+                        android:layout_height="48dp"
+                        android:gravity="center"
+                        android:textColorHint="@color/neutral_500"
+                        tools:text="TSLA"
+                        android:textColor="@color/white"
+                        android:layout_marginRight="50dp"
+                        android:layout_marginEnd="50dp" />
+
+                    <Button
+                        android:id="@+id/start4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="@string/download"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout41"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginTop="15dp"
+                    >
+
+                    <TextView
+                        android:id="@+id/result4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="53dp"
+                        android:gravity="center"
+                        android:paddingHorizontal="15dp"
+                        tools:text="@string/result"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:layout_marginEnd="50dp"
+                        android:layout_marginRight="50dp" />
+
+                    <Button
+                        android:id="@+id/calc4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="@string/calculate" />
+
+                </LinearLayout>
+            </LinearLayout>
 
         </LinearLayout>
-    </LinearLayout>
+
+
+
+    </ScrollView>
+
+
+
+
+
+
+
+
 
 </RelativeLayout>

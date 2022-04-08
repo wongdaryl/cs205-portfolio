@@ -23,4 +23,6 @@
     <string name="calculating">Calculating</string>
     <string name="downloading">Downloading</string>
     <string name="vwap">VWAP</string>
+    <string name="stock_portfolio_manager">Stock Portfolio Manager</string>
+    <string name="no_records_found">No Records Found</string>
 </resources>
