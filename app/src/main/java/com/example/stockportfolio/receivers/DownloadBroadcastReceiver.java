@@ -68,20 +68,20 @@ public class DownloadBroadcastReceiver extends BroadcastReceiver {
                         volatility = (TextView) ((Activity)context).findViewById(R.id.v0);
                         calc = (Button) ((Activity)context).findViewById(R.id.calc0);
                     } else if (index == 1) {
-                        annualRet = (TextView) ((Activity)context).findViewById(R.id.result1);
-                        volatility = (TextView) ((Activity)context).findViewById(R.id.v0);
+                        annualRet = (TextView) ((Activity)context).findViewById(R.id.ar1);
+                        volatility = (TextView) ((Activity)context).findViewById(R.id.v1);
                         calc = (Button) ((Activity)context).findViewById(R.id.calc1);
                     } else if (index == 2) {
-                        annualRet = (TextView) ((Activity)context).findViewById(R.id.result2);
-                        volatility = (TextView) ((Activity)context).findViewById(R.id.v0);
+                        annualRet = (TextView) ((Activity)context).findViewById(R.id.ar2);
+                        volatility = (TextView) ((Activity)context).findViewById(R.id.v2);
                         calc = (Button) ((Activity)context).findViewById(R.id.calc2);
                     } else if (index == 3) {
-                        annualRet = (TextView) ((Activity)context).findViewById(R.id.result3);
-                        volatility = (TextView) ((Activity)context).findViewById(R.id.v0);
+                        annualRet = (TextView) ((Activity)context).findViewById(R.id.ar3);
+                        volatility = (TextView) ((Activity)context).findViewById(R.id.v3);
                         calc = (Button) ((Activity)context).findViewById(R.id.calc3);
                     } else if (index == 4) {
-                        annualRet = (TextView) ((Activity)context).findViewById(R.id.result4);
-                        volatility = (TextView) ((Activity)context).findViewById(R.id.v0);
+                        annualRet = (TextView) ((Activity)context).findViewById(R.id.ar4);
+                        volatility = (TextView) ((Activity)context).findViewById(R.id.v4);
                         calc = (Button) ((Activity)context).findViewById(R.id.calc4);
                     }
                     else {

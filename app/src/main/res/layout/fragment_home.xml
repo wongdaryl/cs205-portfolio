@@ -11,8 +11,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="50dp">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -20,8 +19,8 @@
             android:orientation="vertical"
             android:gravity="center"
             android:paddingBottom="100dp"
-            android:paddingTop="50dp"
-            >
+            android:paddingTop="50dp">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -31,8 +30,7 @@
                 android:textColor="@color/white"
                 android:textSize="30sp"
                 android:layout_centerHorizontal="true"
-                android:layout_marginBottom="0dp"
-                />
+                android:layout_marginBottom="0dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -40,8 +38,7 @@
                 android:layout_marginTop="0dp"
                 android:orientation="vertical"
                 android:gravity="center"
-                android:layout_marginBottom="20dp"
-                >
+                android:layout_marginBottom="20dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -54,8 +51,7 @@
                         android:gravity="center"
                         android:textColor="@color/white"
                         android:text="@string/stock"
-                        android:textSize="24sp"
-                        />
+                        android:textSize="24sp" />
 
                     <EditText
                         android:id="@+id/ticker0"
@@ -66,18 +62,14 @@
                         android:textColorHint="@color/neutral_500"
                         tools:text="TSLA"
                         android:textSize="24sp"
-                        android:textColor="@color/white"
-                         />
+                        android:textColor="@color/white" />
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:baselineAligned="true"
-                    android:layout_marginTop="5dp"
-                    >
+                    android:gravity="center">
 
                     <TextView
                         android:layout_width="180dp"
@@ -100,17 +92,12 @@
                         android:paddingStart="10dp"
                         android:paddingLeft="10dp" />
 
-
-
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:baselineAligned="true"
-                    android:layout_marginTop="0dp"
-                    >
+                    android:gravity="center">
 
                     <TextView
                         android:layout_width="100dp"
@@ -138,8 +125,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="53dp"
                     android:gravity="center"
-                    android:layout_marginTop="5dp"
-                    >
+                    android:layout_marginTop="5dp">
 
                     <Button
                         android:id="@+id/start0"
@@ -161,255 +147,599 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="200dp"
                 android:layout_marginTop="0dp"
                 android:orientation="vertical"
                 android:gravity="center"
-                >
+                android:layout_marginBottom="20dp">
 
                 <LinearLayout
-                    android:id="@+id/layout10"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center">
 
+                    <TextView
+                        android:layout_width="80dp"
+                        android:layout_height="40dp"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        android:text="@string/stock"
+                        android:textSize="24sp" />
+
                     <EditText
                         android:id="@+id/ticker1"
+                        android:layout_marginTop="3dp"
                         android:layout_width="80dp"
                         android:layout_height="48dp"
                         android:gravity="center"
                         android:textColorHint="@color/neutral_500"
-                        tools:text="TSLA"
+                        tools:text="AAPL"
+                        android:textSize="24sp"
+                        android:textColor="@color/white" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="180dp"
+                        android:layout_height="40dp"
+                        android:gravity="center"
+                        android:text="@string/annualized_return"
                         android:textColor="@color/white"
-                        android:layout_marginRight="50dp"
-                        android:layout_marginEnd="50dp" />
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/ar1"
+                        android:layout_width="180dp"
+                        android:layout_height="40dp"
+                        android:gravity="center_vertical"
+                        android:paddingHorizontal="0dp"
+                        tools:text="2.00%"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:paddingStart="10dp"
+                        android:paddingLeft="10dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="40dp"
+                        android:gravity="center"
+                        android:text="@string/vol"
+                        android:textColor="@color/white"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/v1"
+                        android:layout_width="100dp"
+                        android:layout_height="40dp"
+                        android:gravity="center_vertical"
+                        tools:text="1.00%"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:paddingStart="10dp"
+                        android:paddingLeft="10dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="53dp"
+                    android:gravity="center"
+                    android:layout_marginTop="5dp">
 
                     <Button
                         android:id="@+id/start1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         tools:text="@string/download"
-                        />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/layout11"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:layout_marginTop="15dp"
-                    >
-
-                    <TextView
-                        android:id="@+id/result1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="53dp"
-                        android:gravity="center"
-                        android:paddingHorizontal="15dp"
-                        tools:text="@string/result"
-                        android:textColor="@color/white"
-                        android:textSize="18sp"
-                        android:layout_marginEnd="50dp"
-                        android:layout_marginRight="50dp" />
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginRight="10dp" />
 
                     <Button
                         android:id="@+id/calc1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        tools:text="@string/calculate" />
-
+                        tools:text="@string/calculate"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp" />
                 </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:layout_marginTop="00dp"
+                android:layout_height="200dp"
+                android:layout_marginTop="0dp"
                 android:orientation="vertical"
                 android:gravity="center"
+                android:layout_marginBottom="20dp"
                 >
 
                 <LinearLayout
-                    android:id="@+id/layout20"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center">
 
+                    <TextView
+                        android:layout_width="80dp"
+                        android:layout_height="40dp"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        android:text="@string/stock"
+                        android:textSize="24sp"
+                        />
+
                     <EditText
                         android:id="@+id/ticker2"
+                        android:layout_marginTop="3dp"
                         android:layout_width="80dp"
                         android:layout_height="48dp"
                         android:gravity="center"
                         android:textColorHint="@color/neutral_500"
-                        tools:text="TSLA"
+                        tools:text="GME"
+                        android:textSize="24sp"
                         android:textColor="@color/white"
-                        android:layout_marginRight="50dp"
-                        android:layout_marginEnd="50dp" />
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    >
+
+                    <TextView
+                        android:layout_width="180dp"
+                        android:layout_height="40dp"
+                        android:gravity="center"
+                        android:text="@string/annualized_return"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        />
+
+                    <TextView
+                        android:id="@+id/ar2"
+                        android:layout_width="180dp"
+                        android:layout_height="40dp"
+                        android:gravity="center_vertical"
+                        android:paddingHorizontal="0dp"
+                        tools:text="2.00%"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:paddingStart="10dp"
+                        android:paddingLeft="10dp" />
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    >
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="40dp"
+                        android:gravity="center"
+                        android:text="@string/vol"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        />
+
+                    <TextView
+                        android:id="@+id/v2"
+                        android:layout_width="100dp"
+                        android:layout_height="40dp"
+                        android:gravity="center_vertical"
+                        tools:text="1.00%"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:paddingStart="10dp"
+                        android:paddingLeft="10dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="53dp"
+                    android:gravity="center"
+                    android:layout_marginTop="5dp"
+                    >
 
                     <Button
                         android:id="@+id/start2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         tools:text="@string/download"
-                        />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/layout21"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:layout_marginTop="15dp"
-                    >
-
-                    <TextView
-                        android:id="@+id/result2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="53dp"
-                        android:gravity="center"
-                        android:paddingHorizontal="15dp"
-                        tools:text="@string/result"
-                        android:textColor="@color/white"
-                        android:textSize="18sp"
-                        android:layout_marginEnd="50dp"
-                        android:layout_marginRight="50dp" />
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginRight="10dp" />
 
                     <Button
                         android:id="@+id/calc2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        tools:text="@string/calculate" />
-
+                        tools:text="@string/calculate"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp" />
                 </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="200dp"
                 android:layout_marginTop="0dp"
                 android:orientation="vertical"
                 android:gravity="center"
+                android:layout_marginBottom="20dp"
                 >
 
                 <LinearLayout
-                    android:id="@+id/layout30"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center">
 
+                    <TextView
+                        android:layout_width="80dp"
+                        android:layout_height="40dp"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        android:text="@string/stock"
+                        android:textSize="24sp"
+                        />
+
                     <EditText
                         android:id="@+id/ticker3"
+                        android:layout_marginTop="3dp"
                         android:layout_width="80dp"
                         android:layout_height="48dp"
                         android:gravity="center"
                         android:textColorHint="@color/neutral_500"
-                        tools:text="TSLA"
+                        tools:text="AAPL"
+                        android:textSize="24sp"
                         android:textColor="@color/white"
-                        android:layout_marginRight="50dp"
-                        android:layout_marginEnd="50dp" />
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    >
+
+                    <TextView
+                        android:layout_width="180dp"
+                        android:layout_height="40dp"
+                        android:gravity="center"
+                        android:text="@string/annualized_return"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        />
+
+                    <TextView
+                        android:id="@+id/ar3"
+                        android:layout_width="180dp"
+                        android:layout_height="40dp"
+                        android:gravity="center_vertical"
+                        android:paddingHorizontal="0dp"
+                        tools:text="2.00%"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:paddingStart="10dp"
+                        android:paddingLeft="10dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    >
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="40dp"
+                        android:gravity="center"
+                        android:text="@string/vol"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        />
+
+                    <TextView
+                        android:id="@+id/v3"
+                        android:layout_width="100dp"
+                        android:layout_height="40dp"
+                        android:gravity="center_vertical"
+                        tools:text="1.00%"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:paddingStart="10dp"
+                        android:paddingLeft="10dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="53dp"
+                    android:gravity="center"
+                    android:layout_marginTop="5dp"
+                    >
 
                     <Button
                         android:id="@+id/start3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         tools:text="@string/download"
-                        />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/layout31"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:layout_marginTop="15dp"
-                    >
-
-                    <TextView
-                        android:id="@+id/result3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="53dp"
-                        android:gravity="center"
-                        android:paddingHorizontal="15dp"
-                        tools:text="@string/result"
-                        android:textColor="@color/white"
-                        android:textSize="18sp"
-                        android:layout_marginEnd="50dp"
-                        android:layout_marginRight="50dp" />
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginRight="10dp" />
 
                     <Button
                         android:id="@+id/calc3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        tools:text="@string/calculate" />
-
+                        tools:text="@string/calculate"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp" />
                 </LinearLayout>
             </LinearLayout>
 
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="150dp"-->
+<!--                android:layout_marginTop="0dp"-->
+<!--                android:orientation="vertical"-->
+<!--                android:gravity="center"-->
+<!--                >-->
+
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/layout30"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:gravity="center">-->
+
+<!--                    <EditText-->
+<!--                        android:id="@+id/ticker3"-->
+<!--                        android:layout_width="80dp"-->
+<!--                        android:layout_height="48dp"-->
+<!--                        android:gravity="center"-->
+<!--                        android:textColorHint="@color/neutral_500"-->
+<!--                        tools:text="TSLA"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:layout_marginRight="50dp"-->
+<!--                        android:layout_marginEnd="50dp" />-->
+
+<!--                    <Button-->
+<!--                        android:id="@+id/start3"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        tools:text="@string/download"-->
+<!--                        />-->
+
+<!--                </LinearLayout>-->
+
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/layout31"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:gravity="center"-->
+<!--                    android:layout_marginTop="15dp"-->
+<!--                    >-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/result3"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="53dp"-->
+<!--                        android:gravity="center"-->
+<!--                        android:paddingHorizontal="15dp"-->
+<!--                        tools:text="@string/result"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:textSize="18sp"-->
+<!--                        android:layout_marginEnd="50dp"-->
+<!--                        android:layout_marginRight="50dp" />-->
+
+<!--                    <Button-->
+<!--                        android:id="@+id/calc3"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        tools:text="@string/calculate" />-->
+
+<!--                </LinearLayout>-->
+<!--            </LinearLayout>-->
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="200dp"
                 android:layout_marginTop="0dp"
                 android:orientation="vertical"
                 android:gravity="center"
+                android:layout_marginBottom="20dp"
                 >
 
                 <LinearLayout
-                    android:id="@+id/layout40"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center">
 
+                    <TextView
+                        android:layout_width="80dp"
+                        android:layout_height="40dp"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        android:text="@string/stock"
+                        android:textSize="24sp"
+                        />
+
                     <EditText
                         android:id="@+id/ticker4"
+                        android:layout_marginTop="3dp"
                         android:layout_width="80dp"
                         android:layout_height="48dp"
                         android:gravity="center"
                         android:textColorHint="@color/neutral_500"
-                        tools:text="TSLA"
+                        tools:text="AAPL"
+                        android:textSize="24sp"
                         android:textColor="@color/white"
-                        android:layout_marginRight="50dp"
-                        android:layout_marginEnd="50dp" />
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    >
+
+                    <TextView
+                        android:layout_width="180dp"
+                        android:layout_height="40dp"
+                        android:gravity="center"
+                        android:text="@string/annualized_return"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        />
+
+                    <TextView
+                        android:id="@+id/ar4"
+                        android:layout_width="180dp"
+                        android:layout_height="40dp"
+                        android:gravity="center_vertical"
+                        android:paddingHorizontal="0dp"
+                        tools:text="2.00%"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:paddingStart="10dp"
+                        android:paddingLeft="10dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    >
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="40dp"
+                        android:gravity="center"
+                        android:text="@string/vol"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        />
+
+                    <TextView
+                        android:id="@+id/v4"
+                        android:layout_width="100dp"
+                        android:layout_height="40dp"
+                        android:gravity="center_vertical"
+                        tools:text="1.00%"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:paddingStart="10dp"
+                        android:paddingLeft="10dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="53dp"
+                    android:gravity="center"
+                    android:layout_marginTop="5dp"
+                    >
 
                     <Button
                         android:id="@+id/start4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         tools:text="@string/download"
-                        />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/layout41"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:layout_marginTop="15dp"
-                    >
-
-                    <TextView
-                        android:id="@+id/result4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="53dp"
-                        android:gravity="center"
-                        android:paddingHorizontal="15dp"
-                        tools:text="@string/result"
-                        android:textColor="@color/white"
-                        android:textSize="18sp"
-                        android:layout_marginEnd="50dp"
-                        android:layout_marginRight="50dp" />
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginRight="10dp" />
 
                     <Button
                         android:id="@+id/calc4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        tools:text="@string/calculate" />
-
+                        tools:text="@string/calculate"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp" />
                 </LinearLayout>
             </LinearLayout>
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="150dp"-->
+<!--                android:layout_marginTop="0dp"-->
+<!--                android:orientation="vertical"-->
+<!--                android:gravity="center"-->
+<!--                >-->
+
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/layout40"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:gravity="center">-->
+
+<!--                    <EditText-->
+<!--                        android:id="@+id/ticker4"-->
+<!--                        android:layout_width="80dp"-->
+<!--                        android:layout_height="48dp"-->
+<!--                        android:gravity="center"-->
+<!--                        android:textColorHint="@color/neutral_500"-->
+<!--                        tools:text="TSLA"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:layout_marginRight="50dp"-->
+<!--                        android:layout_marginEnd="50dp" />-->
+
+<!--                    <Button-->
+<!--                        android:id="@+id/start4"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        tools:text="@string/download"-->
+<!--                        />-->
+
+<!--                </LinearLayout>-->
+
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/layout41"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:gravity="center"-->
+<!--                    android:layout_marginTop="15dp"-->
+<!--                    >-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/result4"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="53dp"-->
+<!--                        android:gravity="center"-->
+<!--                        android:paddingHorizontal="15dp"-->
+<!--                        tools:text="@string/result"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:textSize="18sp"-->
+<!--                        android:layout_marginEnd="50dp"-->
+<!--                        android:layout_marginRight="50dp" />-->
+
+<!--                    <Button-->
+<!--                        android:id="@+id/calc4"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        tools:text="@string/calculate" />-->
+
+<!--                </LinearLayout>-->
+<!--            </LinearLayout>-->
 
         </LinearLayout>
 

@@ -29,7 +29,7 @@ import com.example.stockportfolio.providers.HistoricalDataProvider;
 public class HomeFragment extends Fragment {
 
     private Button start0, calc0, start1, calc1, start2, calc2, start3, calc3, start4, calc4;
-    private TextView ar0, v0, result1, result2, result3, result4;
+    private TextView ar0, v0, ar1, v1 , ar2, v2, ar3, v3, ar4, v4;
     private EditText ticker0, ticker1, ticker2, ticker3, ticker4;
     private BroadcastReceiver myBroadcastReceiver;
 
@@ -75,8 +75,10 @@ public class HomeFragment extends Fragment {
         calc1 = (Button)getActivity().findViewById(R.id.calc1);
         calc1.setText(R.string.calculate);
         calc1.setBackgroundColor(getResources().getColor(R.color.neutral_500));
-        result1 = (TextView)getActivity().findViewById(R.id.result1);
-        result1.setText(R.string.vwap);
+        ar1 = (TextView)getActivity().findViewById(R.id.ar1);
+        ar1.setText(R.string.dash);
+        v1 = (TextView)getActivity().findViewById(R.id.v1);
+        v1.setText(R.string.dash);
         ticker1 = (EditText)getActivity().findViewById(R.id.ticker1);
         ticker1.setHint(R.string.ticker);
 
@@ -85,8 +87,10 @@ public class HomeFragment extends Fragment {
         calc2 = (Button)getActivity().findViewById(R.id.calc2);
         calc2.setText(R.string.calculate);
         calc2.setBackgroundColor(getResources().getColor(R.color.neutral_500));
-        result2 = (TextView)getActivity().findViewById(R.id.result2);
-        result2.setText(R.string.vwap);
+        ar2 = (TextView)getActivity().findViewById(R.id.ar2);
+        ar2.setText(R.string.dash);
+        v2 = (TextView)getActivity().findViewById(R.id.v2);
+        v2.setText(R.string.dash);
         ticker2 = (EditText)getActivity().findViewById(R.id.ticker2);
         ticker2.setHint(R.string.ticker);
 
@@ -95,8 +99,10 @@ public class HomeFragment extends Fragment {
         calc3 = (Button)getActivity().findViewById(R.id.calc3);
         calc3.setText(R.string.calculate);
         calc3.setBackgroundColor(getResources().getColor(R.color.neutral_500));
-        result3 = (TextView)getActivity().findViewById(R.id.result3);
-        result3.setText(R.string.vwap);
+        ar3 = (TextView)getActivity().findViewById(R.id.ar3);
+        ar3.setText(R.string.dash);
+        v3 = (TextView)getActivity().findViewById(R.id.v3);
+        v3.setText(R.string.dash);
         ticker3 = (EditText)getActivity().findViewById(R.id.ticker3);
         ticker3.setHint(R.string.ticker);
 
@@ -105,8 +111,10 @@ public class HomeFragment extends Fragment {
         calc4 = (Button)getActivity().findViewById(R.id.calc4);
         calc4.setText(R.string.calculate);
         calc4.setBackgroundColor(getResources().getColor(R.color.neutral_500));
-        result4 = (TextView)getActivity().findViewById(R.id.result4);
-        result4.setText(R.string.vwap);
+        ar4 = (TextView)getActivity().findViewById(R.id.ar4);
+        ar4.setText(R.string.dash);
+        v4 = (TextView)getActivity().findViewById(R.id.v4);
+        v4.setText(R.string.dash);
         ticker4 = (EditText)getActivity().findViewById(R.id.ticker4);
         ticker4.setHint(R.string.ticker);
 
@@ -131,8 +139,8 @@ public class HomeFragment extends Fragment {
                         Toast.makeText(getActivity().getApplicationContext(), "No data on " + ticker0.getText(), Toast.LENGTH_SHORT).show();
                         calc0.setClickable(false);
                         calc0.setBackgroundColor(getResources().getColor(R.color.neutral_500));
-                        ar0.setText(R.string.AR);
-                        v0.setText(R.string.vol);
+                        ar0.setText(R.string.dash);
+                        v0.setText(R.string.dash);
                     }
                     return;
                 }
@@ -169,7 +177,8 @@ public class HomeFragment extends Fragment {
                         Toast.makeText(getActivity().getApplicationContext(), "No data on " + ticker1.getText(), Toast.LENGTH_SHORT).show();
                         calc1.setClickable(false);
                         calc1.setBackgroundColor(getResources().getColor(R.color.neutral_500));
-                        result1.setText(R.string.vwap);
+                        ar1.setText(R.string.dash);
+                        v1.setText(R.string.dash);
                     }
                     return;
                 }
@@ -179,7 +188,8 @@ public class HomeFragment extends Fragment {
                 start1.setClickable(false);
                 start1.setBackgroundColor(getResources().getColor(R.color.neutral_500));
                 start1.setText(R.string.downloading);
-                result1.setText(R.string.vwap);
+                ar1.setText(R.string.dash);
+                v1.setText(R.string.dash);
                 getActivity().startService(intent);
             }
         });
@@ -205,7 +215,8 @@ public class HomeFragment extends Fragment {
                         Toast.makeText(getActivity().getApplicationContext(), "No data on " + ticker2.getText(), Toast.LENGTH_SHORT).show();
                         calc2.setClickable(false);
                         calc2.setBackgroundColor(getResources().getColor(R.color.neutral_500));
-                        result2.setText(R.string.vwap);
+                        ar2.setText(R.string.dash);
+                        v2.setText(R.string.dash);
                     }
                     return;
                 }
@@ -215,7 +226,8 @@ public class HomeFragment extends Fragment {
                 start2.setClickable(false);
                 start2.setBackgroundColor(getResources().getColor(R.color.neutral_500));
                 start2.setText(R.string.downloading);
-                result2.setText(R.string.vwap);
+                ar2.setText(R.string.dash);
+                v2.setText(R.string.dash);
                 getActivity().startService(intent);
             }
         });
@@ -241,7 +253,8 @@ public class HomeFragment extends Fragment {
                         Toast.makeText(getActivity().getApplicationContext(), "No data on " + ticker3.getText(), Toast.LENGTH_SHORT).show();
                         calc3.setClickable(false);
                         calc3.setBackgroundColor(getResources().getColor(R.color.neutral_500));
-                        result3.setText(R.string.vwap);
+                        ar3.setText(R.string.dash);
+                        v3.setText(R.string.dash);
                     }
                     return;
                 }
@@ -251,7 +264,8 @@ public class HomeFragment extends Fragment {
                 start3.setClickable(false);
                 start3.setBackgroundColor(getResources().getColor(R.color.neutral_500));
                 start3.setText(R.string.downloading);
-                result3.setText(R.string.vwap);
+                ar3.setText(R.string.dash);
+                v3.setText(R.string.dash);
                 getActivity().startService(intent);
             }
         });
@@ -277,7 +291,8 @@ public class HomeFragment extends Fragment {
                         Toast.makeText(getActivity().getApplicationContext(), "No data on " + ticker4.getText(), Toast.LENGTH_SHORT).show();
                         calc4.setClickable(false);
                         calc4.setBackgroundColor(getResources().getColor(R.color.neutral_500));
-                        result4.setText(R.string.vwap);
+                        ar4.setText(R.string.dash);
+                        v4.setText(R.string.dash);
                     }
                     return;
                 }
@@ -287,7 +302,8 @@ public class HomeFragment extends Fragment {
                 start4.setClickable(false);
                 start4.setBackgroundColor(getResources().getColor(R.color.neutral_500));
                 start4.setText(R.string.downloading);
-                result4.setText(R.string.vwap);
+                ar4.setText(R.string.dash);
+                v4.setText(R.string.dash);
                 getActivity().startService(intent);
             }
         });
@@ -317,7 +333,8 @@ public class HomeFragment extends Fragment {
                 calc1.setClickable(false);
                 calc1.setText(R.string.calculating);
                 calc1.setBackgroundColor(getActivity().getResources().getColor(R.color.neutral_500));
-                result1.setTextColor(getActivity().getResources().getColor(R.color.neutral_500));
+                ar1.setTextColor(getActivity().getResources().getColor(R.color.neutral_500));
+                v1.setTextColor(getActivity().getResources().getColor(R.color.neutral_500));
                 getActivity().sendBroadcast(intent);
             }
         });
@@ -332,7 +349,8 @@ public class HomeFragment extends Fragment {
                 calc2.setClickable(false);
                 calc2.setText(R.string.calculating);
                 calc2.setBackgroundColor(getActivity().getResources().getColor(R.color.neutral_500));
-                result2.setTextColor(getActivity().getResources().getColor(R.color.neutral_500));
+                ar2.setTextColor(getActivity().getResources().getColor(R.color.neutral_500));
+                v2.setTextColor(getActivity().getResources().getColor(R.color.neutral_500));
                 getActivity().sendBroadcast(intent);
             }
         });
@@ -347,7 +365,8 @@ public class HomeFragment extends Fragment {
                 calc3.setClickable(false);
                 calc3.setText(R.string.calculating);
                 calc3.setBackgroundColor(getActivity().getResources().getColor(R.color.neutral_500));
-                result3.setTextColor(getActivity().getResources().getColor(R.color.neutral_500));
+                ar3.setTextColor(getActivity().getResources().getColor(R.color.neutral_500));
+                v3.setTextColor(getActivity().getResources().getColor(R.color.neutral_500));
                 getActivity().sendBroadcast(intent);
             }
         });
@@ -362,7 +381,8 @@ public class HomeFragment extends Fragment {
                 calc4.setClickable(false);
                 calc4.setText(R.string.calculating);
                 calc4.setBackgroundColor(getActivity().getResources().getColor(R.color.neutral_500));
-                result4.setTextColor(getActivity().getResources().getColor(R.color.neutral_500));
+                ar4.setTextColor(getActivity().getResources().getColor(R.color.neutral_500));
+                v4.setTextColor(getActivity().getResources().getColor(R.color.neutral_500));
                 getActivity().sendBroadcast(intent);
             }
         });
