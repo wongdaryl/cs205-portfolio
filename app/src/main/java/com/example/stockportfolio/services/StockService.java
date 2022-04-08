@@ -3,6 +3,7 @@ package com.example.stockportfolio.services;
 import android.app.Service;
 import android.content.ContentValues;
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.IBinder;
@@ -48,7 +49,12 @@ public class StockService extends Service {
         ticker = intent.getStringExtra("ticker");
         index = intent.getIntExtra("index", -1);
         Toast.makeText(this, "download starting for " + ticker, Toast.LENGTH_SHORT).show();
+
+        Bundle data = new Bundle();
+        data.putInt("index", index);
+        data.putString("ticker", ticker);
         Message msg = serviceHandler.obtainMessage();
+        msg.setData(data);
         msg.arg1 = startId;
         msg.arg2 = index;
         serviceHandler.sendMessage(msg);
@@ -73,6 +79,10 @@ public class StockService extends Service {
 
         @Override
         public void handleMessage(Message msg) {
+
+            Bundle data = msg.getData();
+            String ticker = data.getString("ticker");
+            int index = data.getInt("index");
             // url to get historical data
 
             // TODO: update the from and to timings when finished testing
@@ -121,7 +131,7 @@ public class StockService extends Service {
             if(result.contains("no_data")) {
                 Toast.makeText(getApplicationContext(), "No data on " + ticker, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent("DOWNLOAD_FAILED");
-                intent.putExtra("index", msg.arg2);
+                intent.putExtra("index", index);
                 sendBroadcast(intent);
                 stopSelf(msg.arg1);
                 return;
@@ -163,7 +173,7 @@ public class StockService extends Service {
 
             Toast.makeText(getApplicationContext(), "download finished for " + ticker, Toast.LENGTH_SHORT).show();
             Intent intent = new Intent("DOWNLOAD_COMPLETE");
-            intent.putExtra("index", msg.arg2);
+            intent.putExtra("index", index);
             sendBroadcast(intent);
             stopSelf(msg.arg1);
         }

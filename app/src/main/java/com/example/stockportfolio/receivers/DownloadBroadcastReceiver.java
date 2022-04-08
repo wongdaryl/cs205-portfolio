@@ -27,50 +27,25 @@ public class DownloadBroadcastReceiver extends BroadcastReceiver {
             handler.post(new Runnable() {
                 @Override
                 public void run() {
-                    Uri CONTENT_URI = Uri.parse("content://com.example.stockportfolio.providers.HistoricalDataProvider/history");
-                    TextView result;
+                    int index = intent.getIntExtra("index", -1);
                     Button calc;
                     Button start;
-                    if (intent.getIntExtra("index", 0) == 0) {
-                        result = (TextView) ((Activity)context).findViewById(R.id.result0);
+                    if (index == 0) {
                         calc = (Button) ((Activity)context).findViewById(R.id.calc0);
                         start = (Button) ((Activity)context).findViewById(R.id.start0);
+                    } else if (index == 1) {
+                        calc = (Button) ((Activity)context).findViewById(R.id.calc1);
+                        start = (Button) ((Activity)context).findViewById(R.id.start1);
                     } else {
-                        result = (TextView) ((Activity)context).findViewById(R.id.result0);
-                        calc = (Button) ((Activity)context).findViewById(R.id.calc0);
-                        start = (Button) ((Activity)context).findViewById(R.id.start0);
+//                        calc = (Button) ((Activity)context).findViewById(R.id.calc0);
+//                        start = (Button) ((Activity)context).findViewById(R.id.start0);
+                        return;
                     }
                     calc.setClickable(true);
                     calc.setBackgroundColor(((Activity)context).getResources().getColor(R.color.purple_500));
                     start.setClickable(true);
                     start.setBackgroundColor(((Activity)context).getResources().getColor(R.color.purple_500));
                     start.setText(((Activity)context).getResources().getString(R.string.download));
-//                    result.setText("Calculating...");
-//                    double sum_price = 0.0;
-//                    double sum_volume = 0.0;
-//                    Cursor cursor = context.getContentResolver().query(CONTENT_URI, null, null, null, null);
-//                    if (cursor.moveToFirst()) {
-//                        double close = cursor.getDouble(cursor.getColumnIndexOrThrow("close"));
-//                        double volume = cursor.getDouble(cursor.getColumnIndexOrThrow("volume"));
-//                        sum_price += close * volume;
-//                        sum_volume += volume;
-//                        while (!cursor.isAfterLast()) {
-//                            int id = cursor.getColumnIndex("id");
-//                            close = cursor.getDouble(cursor.getColumnIndexOrThrow("close"));
-//                            volume = cursor.getDouble(cursor.getColumnIndexOrThrow("volume"));
-//                            sum_price += close * volume;
-//                            sum_volume += volume;
-//                            cursor.moveToNext();
-//                            Log.v("data", close + "");
-//                        }
-//                    }
-//                    else {
-//                        result.setText("No Records Found");
-//                    }
-//
-//                    double vwap = sum_price / sum_volume;
-//                    result.setText(String.format("%.2f", vwap));
-
                 }
             });
         }
@@ -78,17 +53,23 @@ public class DownloadBroadcastReceiver extends BroadcastReceiver {
             handler.post(new Runnable() {
                 @Override
                 public void run() {
-                    Uri CONTENT_URI = Uri.parse("content://com.example.stockportfolio.providers.HistoricalDataProvider/history");
+                    int index = intent.getIntExtra("index", -1);
                     TextView result;
                     Button calc;
-                    if (intent.getIntExtra("index", 0) == 0) {
+                    if (index == 0) {
                         result = (TextView) ((Activity)context).findViewById(R.id.result0);
                         calc = (Button) ((Activity)context).findViewById(R.id.calc0);
-                    } else {
-                        result = (TextView) ((Activity)context).findViewById(R.id.result0);
-                        calc = (Button) ((Activity)context).findViewById(R.id.calc0);
+                    } else if (index == 1) {
+                        result = (TextView) ((Activity)context).findViewById(R.id.result1);
+                        calc = (Button) ((Activity)context).findViewById(R.id.calc1);
+                    }
+                    else {
+//                        result = (TextView) ((Activity)context).findViewById(R.id.result0);
+//                        calc = (Button) ((Activity)context).findViewById(R.id.calc0);
+                        return;
                     }
 
+                    Uri CONTENT_URI = Uri.parse("content://com.example.stockportfolio.providers.HistoricalDataProvider/history");
                     String ticker = intent.getStringExtra("ticker");
                     String selection = "ticker = '" + ticker + "'";
                     Log.v("selection", selection);
@@ -128,11 +109,16 @@ public class DownloadBroadcastReceiver extends BroadcastReceiver {
             handler.post(new Runnable() {
                 @Override
                 public void run() {
+                    int index = intent.getIntExtra("index", -1);
                     Button start;
-                    if (intent.getIntExtra("index", 0) == 0) {
+                    if (index == 0) {
                         start = (Button) ((Activity)context).findViewById(R.id.start0);
-                    } else {
-                        start = (Button) ((Activity)context).findViewById(R.id.start0);
+                    } else if (index == 1) {
+                        start = (Button) ((Activity)context).findViewById(R.id.start1);
+                    }
+                    else {
+//                        start = (Button) ((Activity)context).findViewById(R.id.start0);
+                        return;
                     }
                     start.setClickable(true);
                     start.setBackgroundColor(((Activity)context).getResources().getColor(R.color.purple_500));

@@ -67,6 +67,17 @@ public class HomeFragment extends Fragment {
         ticker0 = (EditText)getActivity().findViewById(R.id.ticker0);
         ticker0.setHint(R.string.ticker);
 
+        start1 = (Button)getActivity().findViewById(R.id.start1);
+        start1.setText(R.string.download);
+        calc1 = (Button)getActivity().findViewById(R.id.calc1);
+        calc1.setText(R.string.calculate);
+        calc1.setBackgroundColor(getResources().getColor(R.color.neutral_500));
+        result1 = (TextView)getActivity().findViewById(R.id.result1);
+        result1.setText(R.string.vwap);
+        ticker1 = (EditText)getActivity().findViewById(R.id.ticker1);
+        ticker1.setHint(R.string.ticker);
+
+
         start0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -89,13 +100,34 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        start1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity().getApplicationContext(), StockService.class);
+
+                // Error handling: handle case if no input
+                if(TextUtils.isEmpty(ticker1.getText())) {
+                    Toast.makeText(getActivity().getApplicationContext(), "No input provided", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                intent.putExtra("ticker", String.valueOf(ticker1.getText()));
+                intent.putExtra("index", 1);
+                start1.setClickable(false);
+                start1.setBackgroundColor(getResources().getColor(R.color.neutral_500));
+                start1.setText(R.string.downloading);
+                result1.setText(R.string.vwap);
+                getActivity().startService(intent);
+
+            }
+        });
+
         calc0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent("CALCULATE");
                 intent.putExtra("ticker", String.valueOf(ticker0.getText()));
                 intent.putExtra("index", 0);
-//                calc0.setBackgroundColor(R.color.neutral_500);
                 calc0.setClickable(false);
                 calc0.setText(R.string.calculating);
                 calc0.setBackgroundColor(getActivity().getResources().getColor(R.color.neutral_500));
@@ -104,6 +136,21 @@ public class HomeFragment extends Fragment {
             }
         });
         calc0.setClickable(false);
+
+        calc1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent("CALCULATE");
+                intent.putExtra("ticker", String.valueOf(ticker1.getText()));
+                intent.putExtra("index", 1);
+                calc1.setClickable(false);
+                calc1.setText(R.string.calculating);
+                calc1.setBackgroundColor(getActivity().getResources().getColor(R.color.neutral_500));
+                result1.setTextColor(getActivity().getResources().getColor(R.color.neutral_500));
+                getActivity().sendBroadcast(intent);
+            }
+        });
+        calc1.setClickable(false);
     }
 
     @Override
