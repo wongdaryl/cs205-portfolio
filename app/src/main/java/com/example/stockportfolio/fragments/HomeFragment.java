@@ -64,9 +64,9 @@ public class HomeFragment extends Fragment {
         calc0.setText(R.string.calculate);
         calc0.setBackgroundColor(getResources().getColor(R.color.neutral_500));
         ar0 = (TextView)getActivity().findViewById(R.id.ar0);
-        ar0.setText(R.string.AR);
+        ar0.setText(R.string.dash);
         v0 = (TextView)getActivity().findViewById(R.id.v0);
-        v0.setText(R.string.vol);
+        v0.setText(R.string.dash);
         ticker0 = (EditText)getActivity().findViewById(R.id.ticker0);
         ticker0.setHint(R.string.ticker);
 
@@ -142,8 +142,8 @@ public class HomeFragment extends Fragment {
                 start0.setClickable(false);
                 start0.setBackgroundColor(getResources().getColor(R.color.neutral_500));
                 start0.setText(R.string.downloading);
-                ar0.setText(R.string.AR);
-                v0.setText(R.string.vol);
+                ar0.setText(R.string.dash);
+                v0.setText(R.string.dash);
                 getActivity().startService(intent);
             }
         });
