@@ -139,11 +139,13 @@ public class StockService extends Service {
             // parse the json string into 'close' and 'volume' array
             JSONObject jsonObject = null;
             JSONArray jsonArrayClose = null;
+            JSONArray jsonArrayOpen = null;
             JSONArray jsonArrayVolume = null;
 
             try {
                 jsonObject = new JSONObject(result);
                 jsonArrayClose = jsonObject.getJSONArray("c");
+                jsonArrayOpen = jsonObject.getJSONArray("o");
                 jsonArrayVolume = jsonObject.getJSONArray("v");
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -151,15 +153,18 @@ public class StockService extends Service {
 
 
             Log.v("close", String.valueOf(jsonArrayClose.length()));
+            Log.v("open", String.valueOf(jsonArrayOpen.length()));
             Log.v("vol", String.valueOf(jsonArrayVolume.length()));
 
             try {
                 for (int i = 0; i < jsonArrayClose.length(); i++) {
                     double close = jsonArrayClose.getDouble(i);
+                    double open = jsonArrayOpen.getDouble(i);
                     double volume = jsonArrayVolume.getDouble(i);
-                    Log.v("data", i + ":, " + ticker + "- c: " + close + " v: " + volume);
+                    Log.v("data", i + ":, " + ticker + "- c: " + close + ", o: " + open + ", v: " + volume);
                     ContentValues values = new ContentValues();
                     values.put(HistoricalDataProvider.getClose(), close);
+                    values.put(HistoricalDataProvider.getOpen(), open);
                     values.put(HistoricalDataProvider.getVolume(), volume);
                     values.put(HistoricalDataProvider.getTicker(), ticker);
                     getContentResolver().insert(HistoricalDataProvider.getContentUri(), values);
