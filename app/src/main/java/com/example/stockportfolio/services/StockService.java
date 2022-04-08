@@ -171,7 +171,7 @@ public class StockService extends Service {
             }
 
             // broadcast message that download is complete
-            Toast.makeText(getApplicationContext(), "download finished for " + ticker, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Download finished for " + ticker, Toast.LENGTH_SHORT).show();
             HistoricalDataProvider.getRecords().put(ticker, 1);
             Intent intent = new Intent("DOWNLOAD_COMPLETE");
             intent.putExtra("index", index);
