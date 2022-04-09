@@ -84,9 +84,8 @@ public class StockService extends Service {
             int index = data.getInt("index");
             // url to get historical data
 
-            // TODO: update the from and to timings when finished testing
             String stringUrl = "https://finnhub.io/api/v1/stock/candle?symbol=" + ticker
-                    + "&resolution=D&from=1631022248&to=1631627048&token=" + token;
+                    + "&resolution=D&from=1625097601&to=1640995199&token=" + token;
             Log.v("url", stringUrl);
             String result;
             String inputLine;
