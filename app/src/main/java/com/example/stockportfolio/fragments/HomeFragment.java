@@ -134,7 +134,7 @@ public class HomeFragment extends Fragment {
                     if (HistoricalDataProvider.getRecords().get(ticker0.getText().toString()) == 1) {
                         Toast.makeText(getActivity().getApplicationContext(), "Already downloaded data on " + ticker0.getText(), Toast.LENGTH_SHORT).show();
                         calc0.setClickable(true);
-                        calc0.setBackgroundColor(getResources().getColor(R.color.purple_500));
+                        calc0.setBackgroundColor(getResources().getColor(R.color.light_purple));
                     } else if (HistoricalDataProvider.getRecords().get(ticker0.getText().toString()) == 0) {
                         Toast.makeText(getActivity().getApplicationContext(), "No data on " + ticker0.getText(), Toast.LENGTH_SHORT).show();
                         calc0.setClickable(false);
@@ -172,7 +172,7 @@ public class HomeFragment extends Fragment {
                     if (HistoricalDataProvider.getRecords().get(ticker1.getText().toString()) == 1) {
                         Toast.makeText(getActivity().getApplicationContext(), "Already downloaded data on " + ticker1.getText(), Toast.LENGTH_SHORT).show();
                         calc1.setClickable(true);
-                        calc1.setBackgroundColor(getResources().getColor(R.color.purple_500));
+                        calc1.setBackgroundColor(getResources().getColor(R.color.light_purple));
                     } else if (HistoricalDataProvider.getRecords().get(ticker1.getText().toString()) == 0) {
                         Toast.makeText(getActivity().getApplicationContext(), "No data on " + ticker1.getText(), Toast.LENGTH_SHORT).show();
                         calc1.setClickable(false);
@@ -210,7 +210,7 @@ public class HomeFragment extends Fragment {
                     if (HistoricalDataProvider.getRecords().get(ticker2.getText().toString()) == 1) {
                         Toast.makeText(getActivity().getApplicationContext(), "Already downloaded data on " + ticker2.getText(), Toast.LENGTH_SHORT).show();
                         calc2.setClickable(true);
-                        calc2.setBackgroundColor(getResources().getColor(R.color.purple_500));
+                        calc2.setBackgroundColor(getResources().getColor(R.color.light_purple));
                     } else if (HistoricalDataProvider.getRecords().get(ticker2.getText().toString()) == 0) {
                         Toast.makeText(getActivity().getApplicationContext(), "No data on " + ticker2.getText(), Toast.LENGTH_SHORT).show();
                         calc2.setClickable(false);
@@ -248,7 +248,7 @@ public class HomeFragment extends Fragment {
                     if (HistoricalDataProvider.getRecords().get(ticker3.getText().toString()) == 1) {
                         Toast.makeText(getActivity().getApplicationContext(), "Already downloaded data on " + ticker3.getText(), Toast.LENGTH_SHORT).show();
                         calc3.setClickable(true);
-                        calc3.setBackgroundColor(getResources().getColor(R.color.purple_500));
+                        calc3.setBackgroundColor(getResources().getColor(R.color.light_purple));
                     } else if (HistoricalDataProvider.getRecords().get(ticker3.getText().toString()) == 0) {
                         Toast.makeText(getActivity().getApplicationContext(), "No data on " + ticker3.getText(), Toast.LENGTH_SHORT).show();
                         calc3.setClickable(false);
@@ -286,7 +286,7 @@ public class HomeFragment extends Fragment {
                     if (HistoricalDataProvider.getRecords().get(ticker4.getText().toString()) == 1) {
                         Toast.makeText(getActivity().getApplicationContext(), "Already downloaded data on " + ticker4.getText(), Toast.LENGTH_SHORT).show();
                         calc4.setClickable(true);
-                        calc4.setBackgroundColor(getResources().getColor(R.color.purple_500));
+                        calc4.setBackgroundColor(getResources().getColor(R.color.light_purple));
                     } else if (HistoricalDataProvider.getRecords().get(ticker4.getText().toString()) == 0) {
                         Toast.makeText(getActivity().getApplicationContext(), "No data on " + ticker4.getText(), Toast.LENGTH_SHORT).show();
                         calc4.setClickable(false);

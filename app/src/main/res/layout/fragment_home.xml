@@ -160,10 +160,13 @@
                         android:id="@+id/calc0"
                         android:layout_width="@dimen/home_button_width"
                         android:layout_height="@dimen/home_button_height"
+                        android:layout_alignParentEnd="true"
                         android:layout_alignParentRight="true"
+                        android:backgroundTint="@color/neutral_500"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/button_text_size"
                         app:cornerRadius="@dimen/button_corner_radius"
-                        tools:text="@string/calculate"
-                        android:textSize="@dimen/button_text_size"/>
+                        tools:text="@string/calculate" />
                 </RelativeLayout>
             </LinearLayout>
 
@@ -283,9 +286,12 @@
                         android:layout_width="@dimen/home_button_width"
                         android:layout_height="@dimen/home_button_height"
                         android:layout_alignParentRight="true"
+                        android:backgroundTint="@color/neutral_500"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/button_text_size"
                         app:cornerRadius="@dimen/button_corner_radius"
                         tools:text="@string/calculate"
-                        android:textSize="@dimen/button_text_size"/>
+                        android:layout_alignParentEnd="true" />
                 </RelativeLayout>
             </LinearLayout>
 
@@ -405,9 +411,13 @@
                         android:layout_width="@dimen/home_button_width"
                         android:layout_height="@dimen/home_button_height"
                         android:layout_alignParentRight="true"
+                        android:backgroundTint="@color/neutral_500"
+
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/button_text_size"
                         app:cornerRadius="@dimen/button_corner_radius"
                         tools:text="@string/calculate"
-                        android:textSize="@dimen/button_text_size"/>
+                        android:layout_alignParentEnd="true" />
                 </RelativeLayout>
             </LinearLayout>
 
@@ -527,76 +537,14 @@
                         android:layout_width="@dimen/home_button_width"
                         android:layout_height="@dimen/home_button_height"
                         android:layout_alignParentRight="true"
-                        app:cornerRadius="@dimen/button_corner_radius"
+                        android:backgroundTint="@color/neutral_500"
+                        android:textColor="@color/black"
                         android:textSize="@dimen/button_text_size"
-                        tools:text="@string/calculate" />
+                        app:cornerRadius="@dimen/button_corner_radius"
+                        tools:text="@string/calculate"
+                        android:layout_alignParentEnd="true" />
                 </RelativeLayout>
             </LinearLayout>
-
-            <!--            <LinearLayout-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="150dp"-->
-            <!--                android:layout_marginTop="0dp"-->
-            <!--                android:orientation="vertical"-->
-            <!--                android:gravity="center"-->
-            <!--                >-->
-
-            <!--                <LinearLayout-->
-            <!--                    android:id="@+id/layout30"-->
-            <!--                    android:layout_width="match_parent"-->
-            <!--                    android:layout_height="wrap_content"-->
-            <!--                    android:gravity="center">-->
-
-            <!--                    <EditText-->
-            <!--                        android:id="@+id/ticker3"-->
-            <!--                        android:layout_width="80dp"-->
-            <!--                        android:layout_height="48dp"-->
-            <!--                        android:gravity="center"-->
-            <!--                        android:textColorHint="@color/neutral_500"-->
-            <!--                        tools:text="TSLA"-->
-            <!--                        android:textColor="@color/white"-->
-            <!--                        android:layout_marginRight="50dp"-->
-            <!--                        android:layout_marginEnd="50dp" />-->
-
-            <!--                    <Button-->
-            <!--                        android:id="@+id/start3"-->
-            <!--                        android:layout_width="wrap_content"-->
-            <!--                        android:layout_height="wrap_content"-->
-            <!--                        tools:text="@string/download"-->
-            <!--                        />-->
-
-            <!--                </LinearLayout>-->
-
-            <!--                <LinearLayout-->
-            <!--                    android:id="@+id/layout31"-->
-            <!--                    android:layout_width="match_parent"-->
-            <!--                    android:layout_height="wrap_content"-->
-            <!--                    android:gravity="center"-->
-            <!--                    android:layout_marginTop="15dp"-->
-            <!--                    >-->
-
-            <!--                    <TextView-->
-            <!--                        android:id="@+id/result3"-->
-            <!--                        android:layout_width="wrap_content"-->
-            <!--                        android:layout_height="53dp"-->
-            <!--                        android:gravity="center"-->
-            <!--                        android:paddingHorizontal="15dp"-->
-            <!--                        tools:text="@string/result"-->
-            <!--                        android:textColor="@color/white"-->
-            <!--                        android:textSize="18sp"-->
-            <!--                        android:layout_marginEnd="50dp"-->
-            <!--                        android:layout_marginRight="50dp" />-->
-
-            <!--                    <Button-->
-            <!--                        android:id="@+id/calc3"-->
-            <!--                        android:layout_width="wrap_content"-->
-            <!--                        android:layout_height="wrap_content"-->
-            <!--                        tools:text="@string/calculate" />-->
-
-            <!--                </LinearLayout>-->
-            <!--            </LinearLayout>-->
-
-
 
             <!--Fifth stock header-->
             <LinearLayout
@@ -675,6 +623,7 @@
                         android:layout_height="@dimen/home_stock_data_height"
                         android:gravity="center_vertical"
                         android:text="@string/home_annualized_volatility"
+                        android:fontFamily="@font/poppins_medium"
                         android:textColor="@color/light_gray"
                         android:textSize="@dimen/home_stock_text_size"/>
 
@@ -690,27 +639,6 @@
 
                 </LinearLayout>
 
-<!--                    <Button-->
-<!--                        android:id="@+id/start3"-->
-<!--                        android:layout_width="@dimen/home_button_width"-->
-<!--                        android:layout_height="@dimen/home_button_height"-->
-<!--                        android:backgroundTint="@color/light_purple"-->
-<!--                        android:fontFamily="@font/poppins_semi_bold"-->
-<!--                        android:textColor="@color/black"-->
-<!--                        app:cornerRadius="@dimen/button_corner_radius"-->
-<!--                        android:textSize="@dimen/button_text_size"-->
-<!--                        tools:text="@string/download" />-->
-
-                    <!--Calculate button-->
-<!--                    <Button-->
-<!--                        android:id="@+id/calc3"-->
-<!--                        android:layout_width="@dimen/home_button_width"-->
-<!--                        android:layout_height="@dimen/home_button_height"-->
-<!--                        android:layout_alignParentRight="true"-->
-<!--                        app:cornerRadius="@dimen/button_corner_radius"-->
-<!--                        android:textSize="@dimen/button_text_size"-->
-<!--                        tools:text="@string/calculate" />-->
-<!--                </RelativeLayout>-->
 
                 <!--Buttons-->
                 <RelativeLayout
@@ -737,74 +665,14 @@
                         android:layout_width="@dimen/home_button_width"
                         android:layout_height="@dimen/home_button_height"
                         android:layout_alignParentRight="true"
-                        app:cornerRadius="@dimen/button_corner_radius"
+                        android:backgroundTint="@color/neutral_500"
+                        android:textColor="@color/black"
                         android:textSize="@dimen/button_text_size"
-                        tools:text="@string/calculate" />
+                        app:cornerRadius="@dimen/button_corner_radius"
+                        tools:text="@string/calculate"
+                        android:layout_alignParentEnd="true" />
                 </RelativeLayout>
             </LinearLayout>
-
-            <!--            <LinearLayout-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="150dp"-->
-            <!--                android:layout_marginTop="0dp"-->
-            <!--                android:orientation="vertical"-->
-            <!--                android:gravity="center"-->
-            <!--                >-->
-
-            <!--                <LinearLayout-->
-            <!--                    android:id="@+id/layout40"-->
-            <!--                    android:layout_width="match_parent"-->
-            <!--                    android:layout_height="wrap_content"-->
-            <!--                    android:gravity="center">-->
-
-            <!--                    <EditText-->
-            <!--                        android:id="@+id/ticker4"-->
-            <!--                        android:layout_width="80dp"-->
-            <!--                        android:layout_height="48dp"-->
-            <!--                        android:gravity="center"-->
-            <!--                        android:textColorHint="@color/neutral_500"-->
-            <!--                        tools:text="TSLA"-->
-            <!--                        android:textColor="@color/white"-->
-            <!--                        android:layout_marginRight="50dp"-->
-            <!--                        android:layout_marginEnd="50dp" />-->
-
-            <!--                    <Button-->
-            <!--                        android:id="@+id/start4"-->
-            <!--                        android:layout_width="wrap_content"-->
-            <!--                        android:layout_height="wrap_content"-->
-            <!--                        tools:text="@string/download"-->
-            <!--                        />-->
-
-            <!--                </LinearLayout>-->
-
-            <!--                <LinearLayout-->
-            <!--                    android:id="@+id/layout41"-->
-            <!--                    android:layout_width="match_parent"-->
-            <!--                    android:layout_height="wrap_content"-->
-            <!--                    android:gravity="center"-->
-            <!--                    android:layout_marginTop="15dp"-->
-            <!--                    >-->
-
-            <!--                    <TextView-->
-            <!--                        android:id="@+id/result4"-->
-            <!--                        android:layout_width="wrap_content"-->
-            <!--                        android:layout_height="53dp"-->
-            <!--                        android:gravity="center"-->
-            <!--                        android:paddingHorizontal="15dp"-->
-            <!--                        tools:text="@string/result"-->
-            <!--                        android:textColor="@color/white"-->
-            <!--                        android:textSize="18sp"-->
-            <!--                        android:layout_marginEnd="50dp"-->
-            <!--                        android:layout_marginRight="50dp" />-->
-
-            <!--                    <Button-->
-            <!--                        android:id="@+id/calc4"-->
-            <!--                        android:layout_width="wrap_content"-->
-            <!--                        android:layout_height="wrap_content"-->
-            <!--                        tools:text="@string/calculate" />-->
-
-            <!--                </LinearLayout>-->
-            <!--            </LinearLayout>-->
 
         </LinearLayout>
 

@@ -49,9 +49,9 @@ public class DownloadBroadcastReceiver extends BroadcastReceiver {
                         return;
                     }
                     calc.setClickable(true);
-                    calc.setBackgroundColor(((Activity)context).getResources().getColor(R.color.purple_500));
+                    calc.setBackgroundColor(((Activity)context).getResources().getColor(R.color.light_purple));
                     start.setClickable(true);
-                    start.setBackgroundColor(((Activity)context).getResources().getColor(R.color.purple_500));
+                    start.setBackgroundColor(((Activity)context).getResources().getColor(R.color.light_purple));
                     start.setText(((Activity)context).getResources().getString(R.string.download));
                 }
             });
@@ -130,7 +130,7 @@ public class DownloadBroadcastReceiver extends BroadcastReceiver {
 
                     double vwap = sum_price / sum_volume;
                     annualRet.setText(String.format("%.2f", annualizedReturn) + "%");
-                    annualRet.setTextColor(((Activity)context).getResources().getColor(R.color.white));
+                    annualRet.setTextColor(((Activity)context).getResources().getColor(R.color.light_gray));
 
                     double sum_diff = 0.0;
                     count = 0;
@@ -170,11 +170,11 @@ public class DownloadBroadcastReceiver extends BroadcastReceiver {
                     Log.v("std_dev", ""+std_dev);
                     double volatilityValue = Math.sqrt(250) * std_dev * 100;
                     volatility.setText(String.format("%.2f", volatilityValue) + "%");
-                    volatility.setTextColor(((Activity)context).getResources().getColor(R.color.white));
+                    volatility.setTextColor(((Activity)context).getResources().getColor(R.color.light_gray));
 
                     calc.setClickable(true);
                     calc.setText(R.string.calculate);
-                    calc.setBackgroundColor(((Activity)context).getResources().getColor(R.color.purple_500));
+                    calc.setBackgroundColor(((Activity)context).getResources().getColor(R.color.light_purple));
 
                 }
             });
@@ -200,7 +200,7 @@ public class DownloadBroadcastReceiver extends BroadcastReceiver {
                         return;
                     }
                     start.setClickable(true);
-                    start.setBackgroundColor(((Activity)context).getResources().getColor(R.color.purple_500));
+                    start.setBackgroundColor(((Activity)context).getResources().getColor(R.color.light_purple));
                     start.setText(((Activity)context).getResources().getString(R.string.download));
                 }
             });
