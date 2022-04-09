@@ -145,8 +145,11 @@ public class HomeFragment extends Fragment {
                     return;
                 }
 
+                // add ticker and index info to intent, keep track of which values to update
                 intent.putExtra("ticker", String.valueOf(ticker0.getText()));
                 intent.putExtra("index", 0);
+
+                // disable buttons while waiting for download to complete
                 start0.setClickable(false);
                 start0.setBackgroundColor(getResources().getColor(R.color.neutral_500));
                 start0.setText(R.string.downloading);

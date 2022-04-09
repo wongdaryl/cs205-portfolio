@@ -86,7 +86,7 @@ public class StockService extends Service {
 
             String stringUrl = "https://finnhub.io/api/v1/stock/candle?symbol=" + ticker
                     + "&resolution=D&from=1625097601&to=1640995199&token=" + token;
-            Log.v("url", stringUrl);
+            Log.v(ticker, "download starting...");
             String result;
             String inputLine;
 
@@ -147,7 +147,7 @@ public class StockService extends Service {
             }
 
 
-            Log.v("close", String.valueOf(jsonArrayClose.length()));
+            Log.v("rows", String.valueOf(jsonArrayClose.length()));
 
             try {
                 for (int i = 0; i < jsonArrayClose.length(); i++) {
@@ -163,6 +163,7 @@ public class StockService extends Service {
 
             // broadcast message that download is complete
             Toast.makeText(getApplicationContext(), "Download finished for " + ticker, Toast.LENGTH_SHORT).show();
+            Log.v(ticker, "download complete");
             HistoricalDataProvider.getRecords().put(ticker, 1);
             Intent intent = new Intent("DOWNLOAD_COMPLETE");
             intent.putExtra("index", index);
