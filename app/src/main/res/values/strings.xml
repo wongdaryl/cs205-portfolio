@@ -2,7 +2,6 @@
     <string name="app_name">Stock Portfolio</string>
     <string name="action_settings">Settings</string>
 
-
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
@@ -20,11 +19,16 @@
     <string name="calculate">Calculate</string>
 
     <!-- TODO: Remove or change this placeholder text -->
+    <!-- Strings used for fragment_intro-->
+    <string name="get_started">Get Started</string>
+    <string name="header">Portfolio Tracker</string>
+    <string name="description">Our stocker makes it easy to calculate your performance metrics.</string>
+
     <!-- Strings used for fragment_home-->
     <string name="home_header">Welcome!</string>
     <string name="home_sub_header">Key in the stock you are interested in to view their annualized return and volatility.</string>
-    <string name="home_annualized_return">Annualised Return:</string>
-    <string name="home_annualized_volatility">Annualised Volatility:</string>
+    <string name="home_annualized_return">Annualized Return:</string>
+    <string name="home_annualized_volatility">Annualized Volatility:</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="waiting_for_data">Waiting for data..</string>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.HomeFragment"
+    android:background="@color/white">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/home_layout_margin_horizontal"
+            android:paddingTop="@dimen/home_layout_padding_top"
+            android:paddingBottom="@dimen/home_layout_padding_bottom">
+
+            <!--Fragment Home Header-->
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="56dp" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="match_parent"
+                android:layout_height="347dp"
+                android:cropToPadding="true"
+                android:src="@drawable/intro" />
+
+            <TextView
+                android:id="@+id/header"
+                android:layout_width="wrap_content"
+                android:layout_height="63dp"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/poppins_semi_bold"
+                android:gravity="center"
+                android:text="@string/header"
+                android:textColor="@color/black"
+                android:textSize="@dimen/home_header_text_size" />
+
+            <!--Fragment Home sub-header-->
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/home_sub_header_margin_bottom"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="center"
+                android:text="@string/description"
+                android:textColor="@color/black"
+                android:textSize="@dimen/home_sub_header_text_size" />
+
+            <!--First stock header-->
+
+            <!--Fragment Home first stock container-->
+
+            <!--Second stock header-->
+
+            <!--Fragment Home second stock container-->
+
+            <!--Third stock header-->
+
+            <!--Fragment Home third stock container-->
+
+            <!--Fourth stock header-->
+
+            <!--Fragment Home fourth stock container-->
+
+            <!--Fifth stock header-->
+
+
+            <!--Fragment Home fifth stock container-->
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="30dp" />
+
+            <Button
+                android:id="@+id/start4"
+                android:layout_width="@dimen/home_button_width"
+                android:layout_height="@dimen/home_button_height"
+                android:backgroundTint="@color/light_purple"
+                android:fontFamily="@font/poppins_semi_bold"
+                android:textColor="@color/black"
+                android:textSize="@dimen/button_text_size"
+                app:cornerRadius="@dimen/button_corner_radius"
+                tools:text="@string/get_started" />
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+</RelativeLayout>

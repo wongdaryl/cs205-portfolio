@@ -24,12 +24,12 @@
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
-                android:layout_height="177dp"
+                android:layout_height="171dp"
                 android:src="@drawable/home" />
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="75dp"
                 android:layout_centerHorizontal="true"
                 android:fontFamily="@font/poppins_semi_bold"
                 android:gravity="center"
@@ -50,6 +50,10 @@
                 android:textSize="@dimen/home_sub_header_text_size" />
 
             <!--First stock header-->
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="17dp" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
