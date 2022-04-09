@@ -122,7 +122,12 @@ public class DownloadBroadcastReceiver extends BroadcastReceiver {
                                 count++;
                             }
                         } else {
-                            annualRet.setText(R.string.no_records_found);
+                            annualRet.setText(R.string.no_data);
+                            annualRet.setTextColor(((Activity) context).getResources().getColor(R.color.light_gray));
+                            volatility.setText(R.string.no_data);
+                            volatility.setTextColor(((Activity) context).getResources().getColor(R.color.light_gray));
+                            calc.setText(R.string.calculate);
+                            return;
                         }
 
                         double meanRet = sum_ret / count;
@@ -150,7 +155,12 @@ public class DownloadBroadcastReceiver extends BroadcastReceiver {
                                 count++;
                             }
                         } else {
-                            annualRet.setText(R.string.no_records_found);
+                            annualRet.setText(R.string.no_data);
+                            annualRet.setTextColor(((Activity) context).getResources().getColor(R.color.light_gray));
+                            volatility.setText(R.string.no_data);
+                            volatility.setTextColor(((Activity) context).getResources().getColor(R.color.light_gray));
+                            calc.setText(R.string.calculate);
+                            return;
                         }
 
                         double std_dev = Math.sqrt(sum_diff / count);
