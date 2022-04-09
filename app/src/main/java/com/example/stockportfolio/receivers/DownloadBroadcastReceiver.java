@@ -29,8 +29,8 @@ public class DownloadBroadcastReceiver extends BroadcastReceiver {
                     @Override
                     public void run() {
                         int index = intent.getIntExtra("index", -1);
-                        Button calc;
-                        Button start;
+                        Button calc, start;
+                        // get the relevant buttons using the index value
                         switch (index) {
                             case 0:
                                 calc = (Button) ((Activity) context).findViewById(R.id.calc0);
@@ -55,6 +55,7 @@ public class DownloadBroadcastReceiver extends BroadcastReceiver {
                             default:
                                 return;
                         }
+                        // enable the start and calc buttons after data is downloaded
                         calc.setClickable(true);
                         calc.setBackgroundColor(((Activity) context).getResources().getColor(R.color.light_purple));
                         start.setClickable(true);
@@ -70,6 +71,7 @@ public class DownloadBroadcastReceiver extends BroadcastReceiver {
                         int index = intent.getIntExtra("index", -1);
                         TextView annualRet, volatility;
                         Button calc;
+                        // get the relevant TextViews and Buttons to be updated in calculation
                         switch (index) {
                             case 0:
                                 annualRet = (TextView) ((Activity) context).findViewById(R.id.ar0);
@@ -100,6 +102,7 @@ public class DownloadBroadcastReceiver extends BroadcastReceiver {
                                 return;
                         }
 
+                        // retrieve data of specified ticker value using HistoricalDataProvider
                         Uri CONTENT_URI = Uri.parse("content://com.example.stockportfolio.providers.HistoricalDataProvider/history");
                         String ticker = intent.getStringExtra("ticker");
                         String selection = "ticker = '" + ticker + "'";
@@ -108,11 +111,13 @@ public class DownloadBroadcastReceiver extends BroadcastReceiver {
                         Cursor cursor = context.getContentResolver().query(CONTENT_URI, null, selection, null, null);
                         if (cursor.moveToFirst()) {
 
+                            // get the first previous day close price
                             double prevClose = cursor.getDouble(cursor.getColumnIndexOrThrow("close"));
                             cursor.moveToNext();
                             count++;
 
                             while (!cursor.isAfterLast()) {
+                                // calculate return value by taking current day close - prev day close
                                 double close = cursor.getDouble(cursor.getColumnIndexOrThrow("close"));
                                 double ret = (close - prevClose) / prevClose;
 
@@ -122,6 +127,7 @@ public class DownloadBroadcastReceiver extends BroadcastReceiver {
                                 count++;
                             }
                         } else {
+                            // if no values are found in db, update relevant TextViews
                             annualRet.setText(R.string.no_data);
                             annualRet.setTextColor(((Activity) context).getResources().getColor(R.color.light_gray));
                             volatility.setText(R.string.no_data);
@@ -130,31 +136,40 @@ public class DownloadBroadcastReceiver extends BroadcastReceiver {
                             return;
                         }
 
+                        // calculate mean return for std dev calculation later on
                         double meanRet = sum_ret / count;
+
+                        // calculate annualized return using formulae
                         double annualizedReturn = 250 * meanRet * 100;
                         Log.v("meanRet", ""+meanRet);
 
                         annualRet.setText(String.format("%.2f", annualizedReturn) + "%");
                         annualRet.setTextColor(((Activity) context).getResources().getColor(R.color.light_gray));
 
-                        double sum_diff = 0.0;
+                        // calculate sum of squared difference between ret and mean return to be used in std dev calculation
+                        double sum_squared_diff = 0.0;
                         count = 0;
                         cursor = context.getContentResolver().query(CONTENT_URI, null, selection, null, null);
                         if (cursor.moveToFirst()) {
 
+                            // get the first previous day close price
                             double prevClose = cursor.getDouble(cursor.getColumnIndexOrThrow("close"));
                             count++;
                             cursor.moveToNext();
 
                             while (!cursor.isAfterLast()) {
+                                // calculate return value by taking current day close - prev day close
                                 double close = cursor.getDouble(cursor.getColumnIndexOrThrow("close"));
                                 double ret = (close - prevClose) / prevClose;
-                                sum_diff += Math.pow((ret - meanRet), 2);
+
+                                // sum the squared difference between return and mean return
+                                sum_squared_diff += Math.pow((ret - meanRet), 2);
                                 cursor.moveToNext();
                                 prevClose = close;
                                 count++;
                             }
                         } else {
+                            // if no values are found in db, update relevant TextViews
                             annualRet.setText(R.string.no_data);
                             annualRet.setTextColor(((Activity) context).getResources().getColor(R.color.light_gray));
                             volatility.setText(R.string.no_data);
@@ -163,12 +178,16 @@ public class DownloadBroadcastReceiver extends BroadcastReceiver {
                             return;
                         }
 
-                        double std_dev = Math.sqrt(sum_diff / count);
+                        // calculate std dev using formula
+                        double std_dev = Math.sqrt(sum_squared_diff / count);
                         Log.v("std_dev", "" + std_dev);
+
+                        // calculate volatility using formula
                         double volatilityValue = Math.sqrt(250) * std_dev * 100;
                         volatility.setText(String.format("%.2f", volatilityValue) + "%");
                         volatility.setTextColor(((Activity) context).getResources().getColor(R.color.light_gray));
 
+                        // update buttons
                         calc.setClickable(true);
                         calc.setText(R.string.calculate);
                         calc.setBackgroundColor(((Activity) context).getResources().getColor(R.color.light_purple));
@@ -182,6 +201,8 @@ public class DownloadBroadcastReceiver extends BroadcastReceiver {
                     public void run() {
                         int index = intent.getIntExtra("index", -1);
                         Button start, calc;
+
+                        // get the relevant Buttons to be updated
                         switch (index) {
                             case 0:
                                 start = (Button) ((Activity) context).findViewById(R.id.start0);
@@ -206,6 +227,8 @@ public class DownloadBroadcastReceiver extends BroadcastReceiver {
                             default:
                                 return;
                         }
+
+                        // disable start and calculate button
                         start.setClickable(true);
                         start.setBackgroundColor(((Activity) context).getResources().getColor(R.color.light_purple));
                         start.setText(((Activity) context).getResources().getString(R.string.download));

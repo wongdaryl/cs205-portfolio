@@ -188,8 +188,11 @@ public class HomeFragment extends Fragment {
                     return;
                 }
 
+                // add ticker and index info to intent, keep track of which values to update
                 intent.putExtra("ticker", String.valueOf(ticker1.getText()));
                 intent.putExtra("index", 1);
+
+                // disable buttons while waiting for download to complete
                 start1.setClickable(false);
                 start1.setBackgroundColor(getResources().getColor(R.color.neutral_500));
                 start1.setText(R.string.downloading);
@@ -228,8 +231,11 @@ public class HomeFragment extends Fragment {
                     return;
                 }
 
+                // add ticker and index info to intent, keep track of which values to update
                 intent.putExtra("ticker", String.valueOf(ticker2.getText()));
                 intent.putExtra("index", 2);
+
+                // disable buttons while waiting for download to complete
                 start2.setClickable(false);
                 start2.setBackgroundColor(getResources().getColor(R.color.neutral_500));
                 start2.setText(R.string.downloading);
@@ -268,8 +274,11 @@ public class HomeFragment extends Fragment {
                     return;
                 }
 
+                // add ticker and index info to intent, keep track of which values to update
                 intent.putExtra("ticker", String.valueOf(ticker3.getText()));
                 intent.putExtra("index", 3);
+
+                // disable buttons while waiting for download to complete
                 start3.setClickable(false);
                 start3.setBackgroundColor(getResources().getColor(R.color.neutral_500));
                 start3.setText(R.string.downloading);
@@ -308,8 +317,11 @@ public class HomeFragment extends Fragment {
                     return;
                 }
 
+                // add ticker and index info to intent, keep track of which values to update
                 intent.putExtra("ticker", String.valueOf(ticker4.getText()));
                 intent.putExtra("index", 4);
+
+                // disable buttons while waiting for download to complete
                 start4.setClickable(false);
                 start4.setBackgroundColor(getResources().getColor(R.color.neutral_500));
                 start4.setText(R.string.downloading);
@@ -325,8 +337,11 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent("CALCULATE");
+
+                // add ticker and index info to intent, keep track of which values to update
                 intent.putExtra("ticker", String.valueOf(ticker0.getText()));
                 intent.putExtra("index", 0);
+
                 calc0.setClickable(false);
                 calc0.setText(R.string.calculating);
                 calc0.setBackgroundColor(getActivity().getResources().getColor(R.color.neutral_500));
@@ -341,8 +356,11 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent("CALCULATE");
+
+                // add ticker and index info to intent, keep track of which values to update
                 intent.putExtra("ticker", String.valueOf(ticker1.getText()));
                 intent.putExtra("index", 1);
+
                 calc1.setClickable(false);
                 calc1.setText(R.string.calculating);
                 calc1.setBackgroundColor(getActivity().getResources().getColor(R.color.neutral_500));
@@ -357,8 +375,11 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent("CALCULATE");
+
+                // add ticker and index info to intent, keep track of which values to update
                 intent.putExtra("ticker", String.valueOf(ticker2.getText()));
                 intent.putExtra("index", 2);
+
                 calc2.setClickable(false);
                 calc2.setText(R.string.calculating);
                 calc2.setBackgroundColor(getActivity().getResources().getColor(R.color.neutral_500));
@@ -373,8 +394,11 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent("CALCULATE");
+
+                // add ticker and index info to intent, keep track of which values to update
                 intent.putExtra("ticker", String.valueOf(ticker3.getText()));
                 intent.putExtra("index", 3);
+
                 calc3.setClickable(false);
                 calc3.setText(R.string.calculating);
                 calc3.setBackgroundColor(getActivity().getResources().getColor(R.color.neutral_500));
@@ -389,8 +413,11 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent("CALCULATE");
+
+                // add ticker and index info to intent, keep track of which values to update
                 intent.putExtra("ticker", String.valueOf(ticker4.getText()));
                 intent.putExtra("index", 4);
+
                 calc4.setClickable(false);
                 calc4.setText(R.string.calculating);
                 calc4.setBackgroundColor(getActivity().getResources().getColor(R.color.neutral_500));

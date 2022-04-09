@@ -49,13 +49,13 @@ public class StockService extends Service {
         int index = intent.getIntExtra("index", -1);
         Toast.makeText(this, "Download starting for " + ticker, Toast.LENGTH_SHORT).show();
 
+        // store index and ticker values in msg
         Bundle data = new Bundle();
         data.putInt("index", index);
         data.putString("ticker", ticker);
         Message msg = serviceHandler.obtainMessage();
         msg.setData(data);
         msg.arg1 = startId;
-//        msg.arg2 = index;
         serviceHandler.sendMessage(msg);
 
         return START_STICKY;
@@ -79,11 +79,12 @@ public class StockService extends Service {
         @Override
         public void handleMessage(Message msg) {
 
+            // get ticker and index values from msg
             Bundle data = msg.getData();
             String ticker = data.getString("ticker");
             int index = data.getInt("index");
-            // url to get historical data
 
+            // url to get daily data in time period
             String stringUrl = "https://finnhub.io/api/v1/stock/candle?symbol=" + ticker
                     + "&resolution=D&from=1625097601&to=1640995199&token=" + token;
             Log.v(ticker, "download starting...");
@@ -93,7 +94,6 @@ public class StockService extends Service {
             try {
 
                 // make GET requests
-
                 URL myUrl = new URL(stringUrl);
                 HttpURLConnection connection = (HttpURLConnection) myUrl.openConnection();
 
@@ -104,7 +104,6 @@ public class StockService extends Service {
                 connection.connect();
 
                 // store json string from GET response
-
                 InputStreamReader streamReader = new InputStreamReader(connection.getInputStream());
                 BufferedReader reader = new BufferedReader(streamReader);
                 StringBuilder stringBuilder = new StringBuilder();
@@ -150,6 +149,7 @@ public class StockService extends Service {
             Log.v("rows", String.valueOf(jsonArrayClose.length()));
 
             try {
+                // store values in db
                 for (int i = 0; i < jsonArrayClose.length(); i++) {
                     double close = jsonArrayClose.getDouble(i);
                     ContentValues values = new ContentValues();
