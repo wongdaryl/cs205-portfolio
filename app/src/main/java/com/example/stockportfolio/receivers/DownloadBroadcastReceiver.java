@@ -114,7 +114,6 @@ public class DownloadBroadcastReceiver extends BroadcastReceiver {
                             // get the first previous day close price
                             double prevClose = cursor.getDouble(cursor.getColumnIndexOrThrow("close"));
                             cursor.moveToNext();
-                            count++;
 
                             while (!cursor.isAfterLast()) {
                                 // calculate return value by taking current day close - prev day close
@@ -154,7 +153,6 @@ public class DownloadBroadcastReceiver extends BroadcastReceiver {
 
                             // get the first previous day close price
                             double prevClose = cursor.getDouble(cursor.getColumnIndexOrThrow("close"));
-                            count++;
                             cursor.moveToNext();
 
                             while (!cursor.isAfterLast()) {
