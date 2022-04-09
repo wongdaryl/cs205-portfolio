@@ -184,17 +184,33 @@ public class DownloadBroadcastReceiver extends BroadcastReceiver {
                 @Override
                 public void run() {
                     int index = intent.getIntExtra("index", -1);
-                    Button start;
+                    TextView annualRet, volatility;
+                    Button start, calc;
                     if (index == 0) {
                         start = (Button) ((Activity)context).findViewById(R.id.start0);
+                        annualRet = (TextView) ((Activity)context).findViewById(R.id.ar0);
+                        volatility = (TextView) ((Activity)context).findViewById(R.id.v0);
+                        calc = (Button) ((Activity)context).findViewById(R.id.calc0);
                     } else if (index == 1) {
                         start = (Button) ((Activity)context).findViewById(R.id.start1);
+                        annualRet = (TextView) ((Activity)context).findViewById(R.id.ar1);
+                        volatility = (TextView) ((Activity)context).findViewById(R.id.v1);
+                        calc = (Button) ((Activity)context).findViewById(R.id.calc1);
                     } else if (index == 2) {
                         start = (Button) ((Activity)context).findViewById(R.id.start2);
+                        annualRet = (TextView) ((Activity)context).findViewById(R.id.ar2);
+                        volatility = (TextView) ((Activity)context).findViewById(R.id.v2);
+                        calc = (Button) ((Activity)context).findViewById(R.id.calc2);
                     } else if (index == 3) {
                         start = (Button) ((Activity)context).findViewById(R.id.start3);
+                        annualRet = (TextView) ((Activity)context).findViewById(R.id.ar3);
+                        volatility = (TextView) ((Activity)context).findViewById(R.id.v3);
+                        calc = (Button) ((Activity)context).findViewById(R.id.calc3);
                     } else if (index == 4) {
                         start = (Button) ((Activity)context).findViewById(R.id.start4);
+                        annualRet = (TextView) ((Activity)context).findViewById(R.id.ar4);
+                        volatility = (TextView) ((Activity)context).findViewById(R.id.v4);
+                        calc = (Button) ((Activity)context).findViewById(R.id.calc4);
                     }
                     else {
                         return;
@@ -202,6 +218,9 @@ public class DownloadBroadcastReceiver extends BroadcastReceiver {
                     start.setClickable(true);
                     start.setBackgroundColor(((Activity)context).getResources().getColor(R.color.light_purple));
                     start.setText(((Activity)context).getResources().getString(R.string.download));
+                    calc.setClickable(false);
+                    calc.setText(R.string.calculate);
+                    calc.setBackgroundColor(((Activity)context).getResources().getColor(R.color.neutral_500));
                 }
             });
         }

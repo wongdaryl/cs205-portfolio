@@ -150,6 +150,8 @@ public class HomeFragment extends Fragment {
                 start0.setClickable(false);
                 start0.setBackgroundColor(getResources().getColor(R.color.neutral_500));
                 start0.setText(R.string.downloading);
+                calc0.setClickable(false);
+                calc0.setBackgroundColor(getActivity().getResources().getColor(R.color.neutral_500));
                 ar0.setText(R.string.dash);
                 v0.setText(R.string.dash);
                 getActivity().startService(intent);
@@ -188,6 +190,8 @@ public class HomeFragment extends Fragment {
                 start1.setClickable(false);
                 start1.setBackgroundColor(getResources().getColor(R.color.neutral_500));
                 start1.setText(R.string.downloading);
+                calc1.setClickable(false);
+                calc1.setBackgroundColor(getActivity().getResources().getColor(R.color.neutral_500));
                 ar1.setText(R.string.dash);
                 v1.setText(R.string.dash);
                 getActivity().startService(intent);
@@ -226,6 +230,8 @@ public class HomeFragment extends Fragment {
                 start2.setClickable(false);
                 start2.setBackgroundColor(getResources().getColor(R.color.neutral_500));
                 start2.setText(R.string.downloading);
+                calc2.setClickable(false);
+                calc2.setBackgroundColor(getActivity().getResources().getColor(R.color.neutral_500));
                 ar2.setText(R.string.dash);
                 v2.setText(R.string.dash);
                 getActivity().startService(intent);
@@ -264,6 +270,8 @@ public class HomeFragment extends Fragment {
                 start3.setClickable(false);
                 start3.setBackgroundColor(getResources().getColor(R.color.neutral_500));
                 start3.setText(R.string.downloading);
+                calc3.setClickable(false);
+                calc3.setBackgroundColor(getActivity().getResources().getColor(R.color.neutral_500));
                 ar3.setText(R.string.dash);
                 v3.setText(R.string.dash);
                 getActivity().startService(intent);
@@ -302,6 +310,8 @@ public class HomeFragment extends Fragment {
                 start4.setClickable(false);
                 start4.setBackgroundColor(getResources().getColor(R.color.neutral_500));
                 start4.setText(R.string.downloading);
+                calc4.setClickable(false);
+                calc4.setBackgroundColor(getActivity().getResources().getColor(R.color.neutral_500));
                 ar4.setText(R.string.dash);
                 v4.setText(R.string.dash);
                 getActivity().startService(intent);
