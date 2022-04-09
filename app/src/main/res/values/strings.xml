@@ -19,6 +19,8 @@
     <string name="calculate">Calculate</string>
 
     <!-- TODO: Remove or change this placeholder text -->
+    <string name="image">image</string>
+
     <!-- Strings used for fragment_intro-->
     <string name="get_started">Get Started</string>
     <string name="header">Portfolio Tracker</string>

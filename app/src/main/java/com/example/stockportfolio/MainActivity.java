@@ -29,8 +29,8 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
-        // By default, navigation bar starts at home page
-        getSupportFragmentManager().beginTransaction().replace(R.id.container, new HomeFragment()).commit();
+        // By default, navigation bar starts at intro page
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, new IntroFragment()).commit();
 
         myBroadcastReceiver = new DownloadBroadcastReceiver(new Handler(Looper.getMainLooper()));
 
