@@ -3,20 +3,20 @@ This application allows an user to select up to 5 stocks on the home page, givin
 
 ## Features
 **Data Retrieval**  
-Upon clicking the *Download* button, data is fetched in the background via a Service (background thread) to [finnhub](https://finnhub.io/)
+Upon clicking the *Download* button, data is fetched in the background via a Service (background thread) to [finnhub](https://finnhub.io/). The data is then stored in a local SQLite database using a ContentProvider.
 
 **Performance Metrics**  
-Two metrics will be computed, namely annualized return and volatility. Annualized return is calculated based on a formula - N * average(r), where N is the number of periods in the year and average(r) is the average return for the period. Similarly, annualized volatility is calculated based on a formula - sqrt(N) * sd(r), where N is the number of periods in the year, sd(r) is the standard deviation of returns for a period.
+Upon clicking the Calculate button, two metrics will be computed for a specific ticker, namely annualized return and volatility. Annualized return is calculated as AR = N * ave(r), where N is the number of periods in the year and ave(r) is the average return for the period. Annualized volatility is calculated as AV = sqrt(N) * sd(r), where N is the number of periods in a year and sd(r) is the standard deviation of returns for a period. Calculations are done by querying the database for the ticker values and performing arithmetic operations.
 
 ## Design
 **Threads**  
-Three broadcast receivers are spawned upon entering the home page, of which two handles the data downloads in the background, notifying if the download is completed or failed. Another broadcast receiver handles the computation of metrics, ensuring that it does not block the whole application, allowing users to download data for other stock symbols while the computation of metrics is executing in the background.
+A Broadcast Receiver with three Intent Filters is spawned upon entering the home page. Two filters handle the data downloads in the background, notifying if the download is completed or failed, whereas the last filter handles the computation of metrics. This ensures that the main thread is not blocked, allowing users to download data or calculate values for multiple stock symbols, as the processes are executing in the background.
 
 **Interactions**  
-All user interactions are handled by the main activities which compromises of 2 fragments - Introduction & Home. Fragments are implemented for better performance to save the memory overhead of transitioning between activities as well as providing modularity, allowing reusal of component in multiple activities.
+All user interactions are handled by the main activities which comprise two fragments - Introduction & Home. Fragments are implemented for better performance to save memory overhead from transitioning between activities as well as to provide modularity, allowing the reusing of components in multiple activities.
 
 **Communication of Processes**  
-Main activity transits between the two fragments as mentioned above. User interactions with the buttons on the home fragment creates a Service which deliver messages to the Looper's message queue which are received by the Broadcast Receivers that updates the UI
+Main activity transits between the two fragments as mentioned above. User interactions with the download buttons on the Home fragment start a Service, delivering messages to the Looper's message queue that are received by the Broadcast Receiver, which then updates the UI. Pressing the Calculate button broadcasts an intent that is received by the Broadcast Receiver, performing the calculations and updating the values on the UI.
 
 ## App Requirements
 - Device: Nexus 6P
