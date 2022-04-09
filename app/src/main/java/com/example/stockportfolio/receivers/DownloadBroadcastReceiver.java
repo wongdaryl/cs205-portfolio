@@ -106,8 +106,12 @@ public class DownloadBroadcastReceiver extends BroadcastReceiver {
                         Uri CONTENT_URI = Uri.parse("content://com.example.stockportfolio.providers.HistoricalDataProvider/history");
                         String ticker = intent.getStringExtra("ticker");
                         String selection = "ticker = '" + ticker + "'";
+
+                        // keep track of sum of returns and number of instances of data
                         int count = 0;
                         double sum_ret = 0.0;
+
+                        // query data for ticker value
                         Cursor cursor = context.getContentResolver().query(CONTENT_URI, null, selection, null, null);
                         if (cursor.moveToFirst()) {
 
@@ -120,6 +124,7 @@ public class DownloadBroadcastReceiver extends BroadcastReceiver {
                                 double close = cursor.getDouble(cursor.getColumnIndexOrThrow("close"));
                                 double ret = (close - prevClose) / prevClose;
 
+                                // sum the return values
                                 sum_ret += ret;
                                 cursor.moveToNext();
                                 prevClose = close;
@@ -148,6 +153,8 @@ public class DownloadBroadcastReceiver extends BroadcastReceiver {
                         // calculate sum of squared difference between ret and mean return to be used in std dev calculation
                         double sum_squared_diff = 0.0;
                         count = 0;
+
+                        // query data for ticker value
                         cursor = context.getContentResolver().query(CONTENT_URI, null, selection, null, null);
                         if (cursor.moveToFirst()) {
 
