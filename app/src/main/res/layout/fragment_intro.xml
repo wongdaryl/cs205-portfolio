@@ -16,14 +16,15 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="vertical"
-            android:paddingHorizontal="@dimen/home_layout_margin_horizontal"
-            android:paddingTop="@dimen/home_layout_padding_top"
-            android:paddingBottom="@dimen/home_layout_padding_bottom">
+            android:paddingHorizontal="@dimen/intro_layout_margin_horizontal"
+            android:paddingTop="@dimen/intro_layout_padding_top"
+            android:paddingBottom="@dimen/intro_layout_padding_bottom">
 
             <ImageView
                 android:id="@+id/imageView2"
                 android:layout_width="match_parent"
-                android:layout_height="307dp"
+                android:layout_height="@dimen/intro_image_height"
+                android:layout_marginBottom="@dimen/intro_image_margin_bottom"
                 android:contentDescription="@string/image"
                 android:cropToPadding="true"
                 android:src="@drawable/intro" />
@@ -31,20 +32,20 @@
             <TextView
                 android:id="@+id/header"
                 android:layout_width="wrap_content"
-                android:layout_height="59dp"
+                android:layout_height="@dimen/intro_heading_height"
                 android:layout_centerHorizontal="true"
                 android:fontFamily="@font/poppins_semi_bold"
                 android:gravity="center"
                 android:text="@string/header"
                 android:textColor="@color/black"
-                android:textSize="@dimen/home_header_text_size" />
+                android:textSize="@dimen/intro_heading_text_size" />
 
             <TextView
                 android:id="@+id/description"
                 android:layout_width="wrap_content"
-                android:layout_height="80dp"
+                android:layout_height="@dimen/intro_heading_height"
                 android:layout_centerHorizontal="true"
-                android:layout_marginBottom="@dimen/home_sub_header_margin_bottom"
+                android:layout_marginBottom="@dimen/intro_sub_header_margin_bottom"
                 android:fontFamily="@font/poppins_regular"
                 android:gravity="center"
                 android:text="@string/description"
@@ -53,12 +54,12 @@
 
             <Button
                 android:id="@+id/get_started"
-                android:layout_width="@dimen/home_button_width"
-                android:layout_height="@dimen/home_button_height"
+                android:layout_width="@dimen/intro_button_width"
+                android:layout_height="@dimen/intro_button_height"
                 android:backgroundTint="@color/light_purple"
                 android:fontFamily="@font/poppins_semi_bold"
                 android:textColor="@color/black"
-                android:textSize="@dimen/button_text_size"
+                android:textSize="@dimen/intro_button_text_size"
                 app:cornerRadius="@dimen/button_corner_radius"
                 tools:text="@string/get_started" />
 

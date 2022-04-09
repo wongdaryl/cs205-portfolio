@@ -1,7 +1,23 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
 
-    <!--Dimensions for fragment_home-->
+    <!--Values for fragment_intro-->
+    <dimen name="intro_layout_padding_top">100dp</dimen>
+    <dimen name="intro_layout_padding_bottom">100dp</dimen>
+    <dimen name="intro_layout_margin_horizontal">35sp</dimen>
+
+    <dimen name="intro_image_height">260dp</dimen>
+    <dimen name="intro_image_margin_bottom">10dp</dimen>
+
+    <dimen name="intro_heading_height">55dp</dimen>
+    <dimen name="intro_heading_text_size">40sp</dimen>
+    <dimen name="intro_sub_header_margin_bottom">8sp</dimen>
+
+    <dimen name="intro_button_width">200sp</dimen>
+    <dimen name="intro_button_height">55sp</dimen>
+    <dimen name="intro_button_text_size">14sp</dimen>
+
+    <!--Values for fragment_home-->
     <dimen name="home_layout_padding_top">50dp</dimen>
     <dimen name="home_layout_padding_bottom">100dp</dimen>
     <dimen name="home_layout_margin_horizontal">35sp</dimen>
