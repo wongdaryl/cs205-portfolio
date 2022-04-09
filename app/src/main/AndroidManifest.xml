@@ -12,11 +12,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.StockPortfolio">
-        <provider
-            android:name=".providers.FavouriteProvider"
-            android:authorities="com.example.stockportfolio.FavouriteProvider"
-            android:enabled="true"
-            android:exported="true"></provider>
 
         <activity
             android:name=".MainActivity"
@@ -31,13 +26,6 @@
         </activity>
 
         <service android:name=".services.StockService" />
-        <service
-            android:name=".services.SearchService"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="SEARCH" />
-            </intent-filter>
-        </service>
 
         <provider
             android:name="com.example.stockportfolio.providers.HistoricalDataProvider"
@@ -49,6 +37,8 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="DOWNLOAD_COMPLETE" />
+                <action android:name="DOWNLOAD_FAIL" />
+                <action android:name="CALCULATE" />
             </intent-filter>
         </receiver>
     </application>
