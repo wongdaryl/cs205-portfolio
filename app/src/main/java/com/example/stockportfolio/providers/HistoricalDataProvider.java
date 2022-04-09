@@ -71,7 +71,7 @@ public class HistoricalDataProvider extends ContentProvider {
         Context context = getContext();
         DatabaseHelper dbHelper = new DatabaseHelper(context);
 
-        // Create db if not exists
+        // Create new db on start
         db = dbHelper.getWritableDatabase();
         dbHelper.onCreate(db);
         return db != null;
@@ -147,6 +147,7 @@ public class HistoricalDataProvider extends ContentProvider {
 
         @Override
         public void onCreate(SQLiteDatabase db) {
+            // create new db on start
             db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
             db.execSQL(CREATE_DB_TABLE);
         }
