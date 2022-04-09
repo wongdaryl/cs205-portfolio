@@ -162,6 +162,7 @@
                         android:layout_height="@dimen/home_button_height"
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentRight="true"
+                        android:fontFamily="@font/poppins_semi_bold"
                         android:backgroundTint="@color/neutral_500"
                         android:textColor="@color/black"
                         android:textSize="@dimen/button_text_size"
@@ -276,9 +277,9 @@
                         android:backgroundTint="@color/light_purple"
                         android:fontFamily="@font/poppins_semi_bold"
                         android:textColor="@color/black"
+                        android:textSize="@dimen/button_text_size"
                         app:cornerRadius="@dimen/button_corner_radius"
-                        tools:text="@string/download"
-                        android:textSize="@dimen/button_text_size"/>
+                        tools:text="@string/download" />
 
                     <!--Calculate button-->
                     <Button
@@ -287,6 +288,7 @@
                         android:layout_height="@dimen/home_button_height"
                         android:layout_alignParentRight="true"
                         android:backgroundTint="@color/neutral_500"
+                        android:fontFamily="@font/poppins_semi_bold"
                         android:textColor="@color/black"
                         android:textSize="@dimen/button_text_size"
                         app:cornerRadius="@dimen/button_corner_radius"
@@ -410,14 +412,14 @@
                         android:id="@+id/calc2"
                         android:layout_width="@dimen/home_button_width"
                         android:layout_height="@dimen/home_button_height"
+                        android:layout_alignParentEnd="true"
                         android:layout_alignParentRight="true"
+                        android:fontFamily="@font/poppins_semi_bold"
                         android:backgroundTint="@color/neutral_500"
-
                         android:textColor="@color/black"
                         android:textSize="@dimen/button_text_size"
                         app:cornerRadius="@dimen/button_corner_radius"
-                        tools:text="@string/calculate"
-                        android:layout_alignParentEnd="true" />
+                        tools:text="@string/calculate" />
                 </RelativeLayout>
             </LinearLayout>
 
@@ -536,13 +538,14 @@
                         android:id="@+id/calc3"
                         android:layout_width="@dimen/home_button_width"
                         android:layout_height="@dimen/home_button_height"
+                        android:layout_alignParentEnd="true"
                         android:layout_alignParentRight="true"
                         android:backgroundTint="@color/neutral_500"
+                        android:fontFamily="@font/poppins_semi_bold"
                         android:textColor="@color/black"
                         android:textSize="@dimen/button_text_size"
                         app:cornerRadius="@dimen/button_corner_radius"
-                        tools:text="@string/calculate"
-                        android:layout_alignParentEnd="true" />
+                        tools:text="@string/calculate" />
                 </RelativeLayout>
             </LinearLayout>
 
@@ -664,13 +667,14 @@
                         android:id="@+id/calc4"
                         android:layout_width="@dimen/home_button_width"
                         android:layout_height="@dimen/home_button_height"
+                        android:layout_alignParentEnd="true"
                         android:layout_alignParentRight="true"
                         android:backgroundTint="@color/neutral_500"
+                        android:fontFamily="@font/poppins_semi_bold"
                         android:textColor="@color/black"
                         android:textSize="@dimen/button_text_size"
                         app:cornerRadius="@dimen/button_corner_radius"
-                        tools:text="@string/calculate"
-                        android:layout_alignParentEnd="true" />
+                        tools:text="@string/calculate" />
                 </RelativeLayout>
             </LinearLayout>
 
