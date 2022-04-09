@@ -6,9 +6,12 @@
     <dimen name="home_layout_padding_bottom">100dp</dimen>
     <dimen name="home_layout_margin_horizontal">35sp</dimen>
 
+    <dimen name="home_image_height">180dp</dimen>
+
     <dimen name="home_header_text_size">40sp</dimen>
+    <dimen name="home_header_height">75dp</dimen>
     <dimen name="home_sub_header_text_size">16sp</dimen>
-    <dimen name="home_sub_header_margin_bottom">10dp</dimen>
+    <dimen name="home_sub_header_margin_bottom">27dp</dimen>
 
     <dimen name="home_stock_container_height">165dp</dimen>
     <dimen name="home_stock_container_margin_bottom">30dp</dimen>

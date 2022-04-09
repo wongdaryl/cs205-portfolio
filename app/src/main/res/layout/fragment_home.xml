@@ -20,17 +20,18 @@
             android:paddingTop="@dimen/home_layout_padding_top"
             android:paddingBottom="@dimen/home_layout_padding_bottom">
 
-            <!--Fragment Home Header-->
+            <!--Fragment Home Image-->
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
-                android:layout_height="171dp"
+                android:layout_height="@dimen/home_image_height"
                 android:contentDescription="@string/image"
-                android:src="@drawable/home" />
+                android:src="@drawable/home"/>
 
+            <!--Fragment Home Header-->
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="75dp"
+                android:layout_height="@dimen/home_header_height"
                 android:layout_centerHorizontal="true"
                 android:fontFamily="@font/poppins_semi_bold"
                 android:gravity="center"
@@ -48,13 +49,9 @@
                 android:gravity="center"
                 android:text="@string/home_sub_header"
                 android:textColor="@color/black"
-                android:textSize="@dimen/home_sub_header_text_size" />
+                android:textSize="@dimen/home_sub_header_text_size"/>
 
             <!--First stock header-->
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="17dp" />
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
