@@ -4,7 +4,7 @@ This application allows an user to select up to 5 stocks on the home page, givin
 
 ## Features
 **Data Retrieval**  
-Upon clicking the *Download* button, data is fetched in the background via a Broadcast Receiver (background thread) to [finnhub](https://finnhub.io/)
+Upon clicking the *Download* button, data is fetched in the background via a Service (background thread) to [finnhub](https://finnhub.io/)
 
 **Performance Metrics**  
 Two metrics will be computed, namely annualized return and volatility. Annualized return is calculated based on a formula - N * average(r), where N is the number of periods in the year and average(r) is the average return for the period. Similarly, annualized volatility is calculated based on a formula - sqrt(N) * sd(r), where N is the number of periods in the year, sd(r) is the standard deviation of returns for a period.
