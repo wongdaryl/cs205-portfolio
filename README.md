@@ -1,6 +1,5 @@
 # Portfolio Tracker
-
-This application allows an user to select up to 5 stocks on the home page, giving an option to input their preferred stock symbols.
+This application allows an user to select up to 5 stocks on the home page, giving an option to input their preferred stock symbols. Design of the application can be found [here](https://www.figma.com/file/onXb6vf8QZv4LwCxQMZyn7/CS205-Stock-Portfolio?node-id=0%3A1).
 
 ## Features
 **Data Retrieval**  
