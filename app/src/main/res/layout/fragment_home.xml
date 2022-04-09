@@ -21,6 +21,12 @@
             android:paddingBottom="@dimen/home_layout_padding_bottom">
 
             <!--Fragment Home Header-->
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="177dp"
+                android:src="@drawable/home" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -69,6 +75,7 @@
                     android:textColorHint="@color/neutral_500"
                     android:textSize="@dimen/home_stock_header_text_size"
                     tools:text="TSLA" />
+
             </LinearLayout>
 
             <!--Fragment Home first stock container-->
@@ -76,12 +83,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/home_stock_container_height"
                 android:layout_marginBottom="@dimen/home_stock_container_margin_bottom"
+                android:background="@color/background_gray"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:background="@color/background_gray"
                 android:paddingHorizontal="@dimen/home_stock_container_padding_horizontal"
-                android:paddingVertical="@dimen/home_stock_container_padding_vertical"
-                >
+                android:paddingVertical="@dimen/home_stock_container_padding_vertical">
 
 
                 <!--First stock annualized return-->
@@ -133,7 +139,7 @@
                         android:gravity="center_vertical"
                         android:textColor="@color/dark_gray"
                         android:textSize="@dimen/home_stock_text_size"
-                        tools:text="1.00%"/>
+                        tools:text="1.00%" />
                 </LinearLayout>
 
                 <!--Buttons-->
@@ -151,9 +157,9 @@
                         android:backgroundTint="@color/light_purple"
                         android:fontFamily="@font/poppins_semi_bold"
                         android:textColor="@color/black"
+                        android:textSize="@dimen/button_text_size"
                         app:cornerRadius="@dimen/button_corner_radius"
-                        tools:text="@string/download"
-                        android:textSize="@dimen/button_text_size"/>
+                        tools:text="@string/download" />
 
                     <!--Calculate button-->
                     <Button
@@ -162,8 +168,8 @@
                         android:layout_height="@dimen/home_button_height"
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentRight="true"
-                        android:fontFamily="@font/poppins_semi_bold"
                         android:backgroundTint="@color/neutral_500"
+                        android:fontFamily="@font/poppins_semi_bold"
                         android:textColor="@color/black"
                         android:textSize="@dimen/button_text_size"
                         app:cornerRadius="@dimen/button_corner_radius"
@@ -184,7 +190,7 @@
                     android:gravity="center"
                     android:text="@string/stock"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/home_stock_header_text_size"/>
+                    android:textSize="@dimen/home_stock_header_text_size" />
                 <!--Stock ticker-->
                 <EditText
                     android:id="@+id/ticker1"
@@ -203,12 +209,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/home_stock_container_height"
                 android:layout_marginBottom="@dimen/home_stock_container_margin_bottom"
+                android:background="@color/background_gray"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:background="@color/background_gray"
                 android:paddingHorizontal="@dimen/home_stock_container_padding_horizontal"
-                android:paddingVertical="@dimen/home_stock_container_padding_vertical"
-                >
+                android:paddingVertical="@dimen/home_stock_container_padding_vertical">
 
                 <!--Second stock annualized return-->
                 <LinearLayout
@@ -223,7 +228,7 @@
                         android:gravity="center_vertical"
                         android:text="@string/home_annualized_return"
                         android:textColor="@color/light_gray"
-                        android:textSize="@dimen/home_stock_text_size"/>
+                        android:textSize="@dimen/home_stock_text_size" />
 
                     <TextView
                         android:id="@+id/ar1"
@@ -249,7 +254,7 @@
                         android:gravity="center_vertical"
                         android:text="@string/home_annualized_volatility"
                         android:textColor="@color/light_gray"
-                        android:textSize="@dimen/home_stock_text_size"/>
+                        android:textSize="@dimen/home_stock_text_size" />
 
                     <TextView
                         android:id="@+id/v1"
@@ -286,14 +291,14 @@
                         android:id="@+id/calc1"
                         android:layout_width="@dimen/home_button_width"
                         android:layout_height="@dimen/home_button_height"
+                        android:layout_alignParentEnd="true"
                         android:layout_alignParentRight="true"
                         android:backgroundTint="@color/neutral_500"
                         android:fontFamily="@font/poppins_semi_bold"
                         android:textColor="@color/black"
                         android:textSize="@dimen/button_text_size"
                         app:cornerRadius="@dimen/button_corner_radius"
-                        tools:text="@string/calculate"
-                        android:layout_alignParentEnd="true" />
+                        tools:text="@string/calculate" />
                 </RelativeLayout>
             </LinearLayout>
 
@@ -310,7 +315,7 @@
                     android:gravity="center"
                     android:text="@string/stock"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/home_stock_header_text_size"/>
+                    android:textSize="@dimen/home_stock_header_text_size" />
 
                 <!--Stock ticker-->
                 <EditText
@@ -330,9 +335,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/home_stock_container_height"
                 android:layout_marginBottom="@dimen/home_stock_container_margin_bottom"
+                android:background="@color/background_gray"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:background="@color/background_gray"
                 android:paddingHorizontal="@dimen/home_stock_container_padding_horizontal"
                 android:paddingVertical="@dimen/home_stock_container_padding_vertical">
 
@@ -345,11 +350,11 @@
                     <TextView
                         android:layout_width="@dimen/home_stock_data_title_width"
                         android:layout_height="@dimen/home_stock_data_height"
-                        android:gravity="center_vertical"
                         android:fontFamily="@font/poppins_medium"
+                        android:gravity="center_vertical"
                         android:text="@string/home_annualized_return"
                         android:textColor="@color/light_gray"
-                        android:textSize="@dimen/home_stock_text_size"/>
+                        android:textSize="@dimen/home_stock_text_size" />
 
                     <TextView
                         android:id="@+id/ar2"
@@ -375,7 +380,7 @@
                         android:gravity="center_vertical"
                         android:text="@string/home_annualized_volatility"
                         android:textColor="@color/light_gray"
-                        android:textSize="@dimen/home_stock_text_size"/>
+                        android:textSize="@dimen/home_stock_text_size" />
 
                     <TextView
                         android:id="@+id/v2"
@@ -389,6 +394,7 @@
                 </LinearLayout>
 
                 <!--Buttons-->
+
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/home_button_container_height"
@@ -403,9 +409,9 @@
                         android:backgroundTint="@color/light_purple"
                         android:fontFamily="@font/poppins_semi_bold"
                         android:textColor="@color/black"
+                        android:textSize="@dimen/button_text_size"
                         app:cornerRadius="@dimen/button_corner_radius"
-                        tools:text="@string/download"
-                        android:textSize="@dimen/button_text_size"/>
+                        tools:text="@string/download" />
 
                     <!--Calculate button-->
                     <Button
@@ -414,8 +420,8 @@
                         android:layout_height="@dimen/home_button_height"
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentRight="true"
-                        android:fontFamily="@font/poppins_semi_bold"
                         android:backgroundTint="@color/neutral_500"
+                        android:fontFamily="@font/poppins_semi_bold"
                         android:textColor="@color/black"
                         android:textSize="@dimen/button_text_size"
                         app:cornerRadius="@dimen/button_corner_radius"
@@ -436,7 +442,7 @@
                     android:gravity="center"
                     android:text="@string/stock"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/home_stock_header_text_size"/>
+                    android:textSize="@dimen/home_stock_header_text_size" />
 
                 <!--Stock ticker-->
                 <EditText
@@ -456,13 +462,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/home_stock_container_height"
                 android:layout_marginBottom="@dimen/home_stock_container_margin_bottom"
+                android:background="@color/background_gray"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:background="@color/background_gray"
                 android:paddingHorizontal="@dimen/home_stock_container_padding_horizontal"
                 android:paddingVertical="@dimen/home_stock_container_padding_vertical">
 
                 <!--Fourth stock annualized return-->
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -471,9 +478,9 @@
                     <TextView
                         android:layout_width="@dimen/home_stock_data_title_width"
                         android:layout_height="@dimen/home_stock_data_height"
-                        android:gravity="center_vertical"
                         android:fontFamily="@font/poppins_medium"
-                        android:text="@string/annualized_return"
+                        android:gravity="center_vertical"
+                        android:text="@string/home_annualized_return"
                         android:textColor="@color/light_gray"
                         android:textSize="@dimen/home_stock_text_size" />
 
@@ -501,14 +508,14 @@
                         android:gravity="center_vertical"
                         android:text="@string/home_annualized_volatility"
                         android:textColor="@color/light_gray"
-                        android:textSize="@dimen/home_stock_text_size"/>
+                        android:textSize="@dimen/home_stock_text_size" />
 
                     <TextView
                         android:id="@+id/v3"
                         android:layout_width="@dimen/home_stock_data_width"
                         android:layout_height="@dimen/home_stock_data_height"
-                        android:gravity="center_vertical"
                         android:fontFamily="@font/poppins_semi_bold"
+                        android:gravity="center_vertical"
                         android:textColor="@color/dark_gray"
                         android:textSize="@dimen/home_stock_text_size"
                         tools:text="1.00%" />
@@ -529,8 +536,8 @@
                         android:backgroundTint="@color/light_purple"
                         android:fontFamily="@font/poppins_semi_bold"
                         android:textColor="@color/black"
-                        app:cornerRadius="@dimen/button_corner_radius"
                         android:textSize="@dimen/button_text_size"
+                        app:cornerRadius="@dimen/button_corner_radius"
                         tools:text="@string/download" />
 
                     <!--Calculate button-->
@@ -562,7 +569,7 @@
                     android:gravity="center"
                     android:text="@string/stock"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/home_stock_header_text_size"/>
+                    android:textSize="@dimen/home_stock_header_text_size" />
 
                 <!--Stock ticker-->
                 <EditText
@@ -583,9 +590,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/home_stock_container_height"
                 android:layout_marginBottom="@dimen/home_stock_container_margin_bottom"
+                android:background="@color/background_gray"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:background="@color/background_gray"
                 android:paddingHorizontal="@dimen/home_stock_container_padding_horizontal"
                 android:paddingVertical="@dimen/home_stock_container_padding_vertical">
 
@@ -598,9 +605,9 @@
                     <TextView
                         android:layout_width="@dimen/home_stock_data_title_width"
                         android:layout_height="@dimen/home_stock_data_height"
-                        android:gravity="center_vertical"
                         android:fontFamily="@font/poppins_medium"
-                        android:text="@string/annualized_return"
+                        android:gravity="center_vertical"
+                        android:text="@string/home_annualized_return"
                         android:textColor="@color/light_gray"
                         android:textSize="@dimen/home_stock_text_size" />
 
@@ -608,8 +615,8 @@
                         android:id="@+id/ar4"
                         android:layout_width="@dimen/home_stock_data_width"
                         android:layout_height="@dimen/home_stock_data_height"
-                        android:gravity="center_vertical"
                         android:fontFamily="@font/poppins_semi_bold"
+                        android:gravity="center_vertical"
                         android:textColor="@color/dark_gray"
                         android:textSize="@dimen/home_stock_text_size"
                         tools:text="2.00%" />
@@ -624,18 +631,18 @@
                     <TextView
                         android:layout_width="@dimen/home_stock_data_title_width"
                         android:layout_height="@dimen/home_stock_data_height"
+                        android:fontFamily="@font/poppins_medium"
                         android:gravity="center_vertical"
                         android:text="@string/home_annualized_volatility"
-                        android:fontFamily="@font/poppins_medium"
                         android:textColor="@color/light_gray"
-                        android:textSize="@dimen/home_stock_text_size"/>
+                        android:textSize="@dimen/home_stock_text_size" />
 
                     <TextView
                         android:id="@+id/v4"
                         android:layout_width="@dimen/home_stock_data_width"
                         android:layout_height="@dimen/home_stock_data_height"
-                        android:gravity="center_vertical"
                         android:fontFamily="@font/poppins_semi_bold"
+                        android:gravity="center_vertical"
                         android:textColor="@color/dark_gray"
                         android:textSize="@dimen/home_stock_text_size"
                         tools:text="1.00%" />
@@ -658,8 +665,8 @@
                         android:backgroundTint="@color/light_purple"
                         android:fontFamily="@font/poppins_semi_bold"
                         android:textColor="@color/black"
-                        app:cornerRadius="@dimen/button_corner_radius"
                         android:textSize="@dimen/button_text_size"
+                        app:cornerRadius="@dimen/button_corner_radius"
                         tools:text="@string/download" />
 
                     <!--Calculate button-->

@@ -128,7 +128,6 @@ public class DownloadBroadcastReceiver extends BroadcastReceiver {
                     double meanRet = sum_ret / count;
                     double annualizedReturn = 250 * meanRet * 100;
 
-                    double vwap = sum_price / sum_volume;
                     annualRet.setText(String.format("%.2f", annualizedReturn) + "%");
                     annualRet.setTextColor(((Activity)context).getResources().getColor(R.color.light_gray));
 
